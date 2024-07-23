@@ -1,0 +1,741 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 63;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E436CD142A9AA3580042B9C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD132A9AA3580042B9C0 /* ContentView.swift */; };
+		E436CD162A9AA35A0042B9C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E436CD152A9AA35A0042B9C0 /* Assets.xcassets */; };
+		E436CD192A9AA35A0042B9C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E436CD182A9AA35A0042B9C0 /* Preview Assets.xcassets */; };
+		E436CD232A9AA35B0042B9C0 /* JustDronesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD222A9AA35B0042B9C0 /* JustDronesTests.swift */; };
+		E436CD2D2A9AA35B0042B9C0 /* JustDronesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD2C2A9AA35B0042B9C0 /* JustDronesUITests.swift */; };
+		E436CD2F2A9AA35B0042B9C0 /* JustDronesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD2E2A9AA35B0042B9C0 /* JustDronesUITestsLaunchTests.swift */; };
+		E436CD3C2A9AA38A0042B9C0 /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD3B2A9AA38A0042B9C0 /* Menus.swift */; };
+		E436CD422A9AA4180042B9C0 /* Drones.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD412A9AA4180042B9C0 /* Drones.swift */; };
+		E436CD442A9AA4380042B9C0 /* Synth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD432A9AA4380042B9C0 /* Synth.swift */; };
+		E436CD4A2A9AA4990042B9C0 /* DroneLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD492A9AA4990042B9C0 /* DroneLayouts.swift */; };
+		E436CD552A9AA6960042B9C0 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = E436CD542A9AA6960042B9C0 /* AudioKit */; };
+		E436CD572A9AA69D0042B9C0 /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = E436CD562A9AA69D0042B9C0 /* SoundpipeAudioKit */; };
+		E43D7E782C4EAA580054D7B4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43D7E772C4EAA570054D7B4 /* Launch Screen.storyboard */; };
+		E48372EE2AA666C7008D33ED /* BravuraText.otf in Resources */ = {isa = PBXBuildFile; fileRef = E48372ED2AA666C6008D33ED /* BravuraText.otf */; };
+		E48372EF2AA666C7008D33ED /* BravuraText.otf in Resources */ = {isa = PBXBuildFile; fileRef = E48372ED2AA666C6008D33ED /* BravuraText.otf */; };
+		E48372F02AA666C7008D33ED /* BravuraText.otf in Resources */ = {isa = PBXBuildFile; fileRef = E48372ED2AA666C6008D33ED /* BravuraText.otf */; };
+		E48397C92C4996C800AC3351 /* JustDronesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48397C82C4996C800AC3351 /* JustDronesApp.swift */; };
+		E48733FD2C304AB100E6DF8E /* Controls in Frameworks */ = {isa = PBXBuildFile; productRef = E48733FC2C304AB100E6DF8E /* Controls */; };
+		E48733FF2C38EBF100E6DF8E /* RecordedDrones.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48733FE2C38EBF100E6DF8E /* RecordedDrones.swift */; };
+		E49C40252C4F0F0C006FDE8D /* AirTurnUI in Frameworks */ = {isa = PBXBuildFile; productRef = E49C40242C4F0F0C006FDE8D /* AirTurnUI */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E436CD1F2A9AA35B0042B9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E436CD062A9AA3580042B9C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E436CD0D2A9AA3580042B9C0;
+			remoteInfo = JustDrones;
+		};
+		E436CD292A9AA35B0042B9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E436CD062A9AA3580042B9C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E436CD0D2A9AA3580042B9C0;
+			remoteInfo = JustDrones;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E436CD0E2A9AA3580042B9C0 /* JustDrones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustDrones.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E436CD112A9AA3580042B9C0 /* JustDrones.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JustDrones.xcodeproj; path = ../JustDrones.xcodeproj; sourceTree = "<group>"; };
+		E436CD132A9AA3580042B9C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E436CD152A9AA35A0042B9C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E436CD182A9AA35A0042B9C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E436CD1E2A9AA35B0042B9C0 /* JustDronesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustDronesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E436CD222A9AA35B0042B9C0 /* JustDronesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustDronesTests.swift; sourceTree = "<group>"; };
+		E436CD282A9AA35B0042B9C0 /* JustDronesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustDronesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E436CD2C2A9AA35B0042B9C0 /* JustDronesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustDronesUITests.swift; sourceTree = "<group>"; };
+		E436CD2E2A9AA35B0042B9C0 /* JustDronesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustDronesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E436CD3B2A9AA38A0042B9C0 /* Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
+		E436CD412A9AA4180042B9C0 /* Drones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drones.swift; sourceTree = "<group>"; };
+		E436CD432A9AA4380042B9C0 /* Synth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synth.swift; sourceTree = "<group>"; };
+		E436CD492A9AA4990042B9C0 /* DroneLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneLayouts.swift; sourceTree = "<group>"; };
+		E436CD582A9AAA970042B9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E43D7E772C4EAA570054D7B4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		E48372ED2AA666C6008D33ED /* BravuraText.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BravuraText.otf; sourceTree = "<group>"; };
+		E48397C82C4996C800AC3351 /* JustDronesApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JustDronesApp.swift; sourceTree = "<group>"; };
+		E48733FE2C38EBF100E6DF8E /* RecordedDrones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordedDrones.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E436CD0B2A9AA3580042B9C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E49C40252C4F0F0C006FDE8D /* AirTurnUI in Frameworks */,
+				E436CD572A9AA69D0042B9C0 /* SoundpipeAudioKit in Frameworks */,
+				E48733FD2C304AB100E6DF8E /* Controls in Frameworks */,
+				E436CD552A9AA6960042B9C0 /* AudioKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E436CD1B2A9AA35B0042B9C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E436CD252A9AA35B0042B9C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E436CD052A9AA3580042B9C0 = {
+			isa = PBXGroup;
+			children = (
+				E43D7E772C4EAA570054D7B4 /* Launch Screen.storyboard */,
+				E436CD102A9AA3580042B9C0 /* JustDrones */,
+				E436CD212A9AA35B0042B9C0 /* JustDronesTests */,
+				E436CD2B2A9AA35B0042B9C0 /* JustDronesUITests */,
+				E436CD0F2A9AA3580042B9C0 /* Products */,
+				E436CD532A9AA6960042B9C0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E436CD0F2A9AA3580042B9C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E436CD0E2A9AA3580042B9C0 /* JustDrones.app */,
+				E436CD1E2A9AA35B0042B9C0 /* JustDronesTests.xctest */,
+				E436CD282A9AA35B0042B9C0 /* JustDronesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E436CD102A9AA3580042B9C0 /* JustDrones */ = {
+			isa = PBXGroup;
+			children = (
+				E436CD582A9AAA970042B9C0 /* Info.plist */,
+				E436CD112A9AA3580042B9C0 /* JustDrones.xcodeproj */,
+				E48397C82C4996C800AC3351 /* JustDronesApp.swift */,
+				E436CD132A9AA3580042B9C0 /* ContentView.swift */,
+				E436CD3B2A9AA38A0042B9C0 /* Menus.swift */,
+				E436CD432A9AA4380042B9C0 /* Synth.swift */,
+				E436CD412A9AA4180042B9C0 /* Drones.swift */,
+				E436CD492A9AA4990042B9C0 /* DroneLayouts.swift */,
+				E48733FE2C38EBF100E6DF8E /* RecordedDrones.swift */,
+				E436CD152A9AA35A0042B9C0 /* Assets.xcassets */,
+				E48372ED2AA666C6008D33ED /* BravuraText.otf */,
+				E436CD172A9AA35A0042B9C0 /* Preview Content */,
+			);
+			path = JustDrones;
+			sourceTree = "<group>";
+		};
+		E436CD172A9AA35A0042B9C0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E436CD182A9AA35A0042B9C0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E436CD212A9AA35B0042B9C0 /* JustDronesTests */ = {
+			isa = PBXGroup;
+			children = (
+				E436CD222A9AA35B0042B9C0 /* JustDronesTests.swift */,
+			);
+			path = JustDronesTests;
+			sourceTree = "<group>";
+		};
+		E436CD2B2A9AA35B0042B9C0 /* JustDronesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E436CD2C2A9AA35B0042B9C0 /* JustDronesUITests.swift */,
+				E436CD2E2A9AA35B0042B9C0 /* JustDronesUITestsLaunchTests.swift */,
+			);
+			path = JustDronesUITests;
+			sourceTree = "<group>";
+		};
+		E436CD532A9AA6960042B9C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E48397C62C49968F00AC3351 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E436CD0D2A9AA3580042B9C0 /* JustDrones */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E436CD322A9AA35B0042B9C0 /* Build configuration list for PBXNativeTarget "JustDrones" */;
+			buildPhases = (
+				E436CD0A2A9AA3580042B9C0 /* Sources */,
+				E436CD0B2A9AA3580042B9C0 /* Frameworks */,
+				E436CD0C2A9AA3580042B9C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JustDrones;
+			packageProductDependencies = (
+				E436CD542A9AA6960042B9C0 /* AudioKit */,
+				E436CD562A9AA69D0042B9C0 /* SoundpipeAudioKit */,
+				E48733FC2C304AB100E6DF8E /* Controls */,
+				E49C40242C4F0F0C006FDE8D /* AirTurnUI */,
+			);
+			productName = JustDrones;
+			productReference = E436CD0E2A9AA3580042B9C0 /* JustDrones.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E436CD1D2A9AA35B0042B9C0 /* JustDronesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E436CD352A9AA35B0042B9C0 /* Build configuration list for PBXNativeTarget "JustDronesTests" */;
+			buildPhases = (
+				E436CD1A2A9AA35B0042B9C0 /* Sources */,
+				E436CD1B2A9AA35B0042B9C0 /* Frameworks */,
+				E436CD1C2A9AA35B0042B9C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E436CD202A9AA35B0042B9C0 /* PBXTargetDependency */,
+			);
+			name = JustDronesTests;
+			productName = JustDronesTests;
+			productReference = E436CD1E2A9AA35B0042B9C0 /* JustDronesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E436CD272A9AA35B0042B9C0 /* JustDronesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E436CD382A9AA35B0042B9C0 /* Build configuration list for PBXNativeTarget "JustDronesUITests" */;
+			buildPhases = (
+				E436CD242A9AA35B0042B9C0 /* Sources */,
+				E436CD252A9AA35B0042B9C0 /* Frameworks */,
+				E436CD262A9AA35B0042B9C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E436CD2A2A9AA35B0042B9C0 /* PBXTargetDependency */,
+			);
+			name = JustDronesUITests;
+			productName = JustDronesUITests;
+			productReference = E436CD282A9AA35B0042B9C0 /* JustDronesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E436CD062A9AA3580042B9C0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					E436CD0D2A9AA3580042B9C0 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					E436CD1D2A9AA35B0042B9C0 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = E436CD0D2A9AA3580042B9C0;
+					};
+					E436CD272A9AA35B0042B9C0 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = E436CD0D2A9AA3580042B9C0;
+					};
+				};
+			};
+			buildConfigurationList = E436CD092A9AA3580042B9C0 /* Build configuration list for PBXProject "JustDrones" */;
+			compatibilityVersion = "Xcode 15.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E436CD052A9AA3580042B9C0;
+			packageReferences = (
+				E436CD512A9AA5290042B9C0 /* XCRemoteSwiftPackageReference "AudioKit" */,
+				E436CD522A9AA55B0042B9C0 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */,
+				E4F790A82C2F5ED300021881 /* XCRemoteSwiftPackageReference "Controls" */,
+				E49C40232C4F0EDA006FDE8D /* XCRemoteSwiftPackageReference "AirTurnUI-source-SP" */,
+			);
+			productRefGroup = E436CD0F2A9AA3580042B9C0 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E48397C62C49968F00AC3351 /* Products */;
+					ProjectRef = E436CD112A9AA3580042B9C0 /* JustDrones.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				E436CD0D2A9AA3580042B9C0 /* JustDrones */,
+				E436CD1D2A9AA35B0042B9C0 /* JustDronesTests */,
+				E436CD272A9AA35B0042B9C0 /* JustDronesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E436CD0C2A9AA3580042B9C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E436CD192A9AA35A0042B9C0 /* Preview Assets.xcassets in Resources */,
+				E48372EE2AA666C7008D33ED /* BravuraText.otf in Resources */,
+				E43D7E782C4EAA580054D7B4 /* Launch Screen.storyboard in Resources */,
+				E436CD162A9AA35A0042B9C0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E436CD1C2A9AA35B0042B9C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E48372EF2AA666C7008D33ED /* BravuraText.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E436CD262A9AA35B0042B9C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E48372F02AA666C7008D33ED /* BravuraText.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E436CD0A2A9AA3580042B9C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E48397C92C4996C800AC3351 /* JustDronesApp.swift in Sources */,
+				E436CD142A9AA3580042B9C0 /* ContentView.swift in Sources */,
+				E436CD442A9AA4380042B9C0 /* Synth.swift in Sources */,
+				E436CD4A2A9AA4990042B9C0 /* DroneLayouts.swift in Sources */,
+				E436CD422A9AA4180042B9C0 /* Drones.swift in Sources */,
+				E48733FF2C38EBF100E6DF8E /* RecordedDrones.swift in Sources */,
+				E436CD3C2A9AA38A0042B9C0 /* Menus.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E436CD1A2A9AA35B0042B9C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E436CD232A9AA35B0042B9C0 /* JustDronesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E436CD242A9AA35B0042B9C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E436CD2D2A9AA35B0042B9C0 /* JustDronesUITests.swift in Sources */,
+				E436CD2F2A9AA35B0042B9C0 /* JustDronesUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E436CD202A9AA35B0042B9C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E436CD0D2A9AA3580042B9C0 /* JustDrones */;
+			targetProxy = E436CD1F2A9AA35B0042B9C0 /* PBXContainerItemProxy */;
+		};
+		E436CD2A2A9AA35B0042B9C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E436CD0D2A9AA3580042B9C0 /* JustDrones */;
+			targetProxy = E436CD292A9AA35B0042B9C0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E436CD302A9AA35B0042B9C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E436CD312A9AA35B0042B9C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E436CD332A9AA35B0042B9C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"JustDrones/Preview Content\"";
+				DEVELOPMENT_TEAM = X8YW77H8A9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JustDrones/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Connect to Bluetooth Pedals";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Connect to Bluetooth Pedals";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tonsoftuners.JustDrones;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E436CD342A9AA35B0042B9C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"JustDrones/Preview Content\"";
+				DEVELOPMENT_TEAM = X8YW77H8A9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JustDrones/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Connect to Bluetooth Pedals";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Connect to Bluetooth Pedals";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tonsoftuners.JustDrones;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E436CD362A9AA35B0042B9C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X8YW77H8A9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tonsoftuners.JustDronesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JustDrones.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/JustDrones";
+			};
+			name = Debug;
+		};
+		E436CD372A9AA35B0042B9C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X8YW77H8A9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tonsoftuners.JustDronesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JustDrones.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/JustDrones";
+			};
+			name = Release;
+		};
+		E436CD392A9AA35B0042B9C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X8YW77H8A9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tonsoftuners.JustDronesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JustDrones;
+			};
+			name = Debug;
+		};
+		E436CD3A2A9AA35B0042B9C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X8YW77H8A9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tonsoftuners.JustDronesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JustDrones;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E436CD092A9AA3580042B9C0 /* Build configuration list for PBXProject "JustDrones" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E436CD302A9AA35B0042B9C0 /* Debug */,
+				E436CD312A9AA35B0042B9C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E436CD322A9AA35B0042B9C0 /* Build configuration list for PBXNativeTarget "JustDrones" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E436CD332A9AA35B0042B9C0 /* Debug */,
+				E436CD342A9AA35B0042B9C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E436CD352A9AA35B0042B9C0 /* Build configuration list for PBXNativeTarget "JustDronesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E436CD362A9AA35B0042B9C0 /* Debug */,
+				E436CD372A9AA35B0042B9C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E436CD382A9AA35B0042B9C0 /* Build configuration list for PBXNativeTarget "JustDronesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E436CD392A9AA35B0042B9C0 /* Debug */,
+				E436CD3A2A9AA35B0042B9C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E436CD512A9AA5290042B9C0 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		E436CD522A9AA55B0042B9C0 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/SoundpipeAudioKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		E49C40232C4F0EDA006FDE8D /* XCRemoteSwiftPackageReference "AirTurnUI-source-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AirTurn/AirTurnUI-source-SP.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.8.2;
+			};
+		};
+		E4F790A82C2F5ED300021881 /* XCRemoteSwiftPackageReference "Controls" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/Controls.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E436CD542A9AA6960042B9C0 /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E436CD512A9AA5290042B9C0 /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+		E436CD562A9AA69D0042B9C0 /* SoundpipeAudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E436CD522A9AA55B0042B9C0 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */;
+			productName = SoundpipeAudioKit;
+		};
+		E48733FC2C304AB100E6DF8E /* Controls */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4F790A82C2F5ED300021881 /* XCRemoteSwiftPackageReference "Controls" */;
+			productName = Controls;
+		};
+		E49C40242C4F0F0C006FDE8D /* AirTurnUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E49C40232C4F0EDA006FDE8D /* XCRemoteSwiftPackageReference "AirTurnUI-source-SP" */;
+			productName = AirTurnUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E436CD062A9AA3580042B9C0 /* Project object */;
+}

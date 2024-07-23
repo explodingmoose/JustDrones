@@ -1,0 +1,69 @@
+{
+  "originHash" : "35d830b236ed653c1976d8a92c74108cf1e83bda4776df859b14cc7bdda3b75c",
+  "pins" : [
+    {
+      "identity" : "airturninterface-mergeable-sp",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AirTurn/AirTurnInterface-mergeable-SP.git",
+      "state" : {
+        "revision" : "41fa77e0baaa0ac5abb12496bffdf88498261ee5",
+        "version" : "4.8.2"
+      }
+    },
+    {
+      "identity" : "airturnui-source-sp",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AirTurn/AirTurnUI-source-SP.git",
+      "state" : {
+        "revision" : "5a8dbca344709c86f221b34b7506861ae6a2e5d7",
+        "version" : "4.8.2"
+      }
+    },
+    {
+      "identity" : "audiokit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/AudioKit.git",
+      "state" : {
+        "revision" : "c30a151fea40696ad0a45c60c2bba29112bb4279",
+        "version" : "5.6.1"
+      }
+    },
+    {
+      "identity" : "audiokitex",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/AudioKitEX",
+      "state" : {
+        "revision" : "58fa4a002028a2addf96466dd5ad68182e7d387e",
+        "version" : "5.6.0"
+      }
+    },
+    {
+      "identity" : "controls",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/Controls.git",
+      "state" : {
+        "revision" : "4dd10370125af7f1e26d7a71b2c5929bb3c95087",
+        "version" : "1.1.4"
+      }
+    },
+    {
+      "identity" : "kissfft",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/KissFFT",
+      "state" : {
+        "revision" : "dd0636e151724b8ba2e0908eba4d99a6ff24d00c",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "soundpipeaudiokit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/SoundpipeAudioKit.git",
+      "state" : {
+        "revision" : "ee7d9542078ae48b24744a67c0350a12f9de354b",
+        "version" : "5.6.1"
+      }
+    }
+  ],
+  "version" : 3
+}
