@@ -1,24 +1,6 @@
 {
-  "originHash" : "35d830b236ed653c1976d8a92c74108cf1e83bda4776df859b14cc7bdda3b75c",
+  "originHash" : "ca679904a709d8ad0c9a041af101d8ae141e069beb4dbaaa668f015385160a5f",
   "pins" : [
-    {
-      "identity" : "airturninterface-mergeable-sp",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/AirTurn/AirTurnInterface-mergeable-SP.git",
-      "state" : {
-        "revision" : "41fa77e0baaa0ac5abb12496bffdf88498261ee5",
-        "version" : "4.8.2"
-      }
-    },
-    {
-      "identity" : "airturnui-source-sp",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/AirTurn/AirTurnUI-source-SP.git",
-      "state" : {
-        "revision" : "5a8dbca344709c86f221b34b7506861ae6a2e5d7",
-        "version" : "4.8.2"
-      }
-    },
     {
       "identity" : "audiokit",
       "kind" : "remoteSourceControl",
@@ -38,12 +20,30 @@
       }
     },
     {
+      "identity" : "audiokitui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/AudioKitUI.git",
+      "state" : {
+        "revision" : "1a61e8a96c7ee24c3e5abe06dc3334a31fd7571d",
+        "version" : "0.3.7"
+      }
+    },
+    {
       "identity" : "controls",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AudioKit/Controls.git",
       "state" : {
         "revision" : "4dd10370125af7f1e26d7a71b2c5929bb3c95087",
         "version" : "1.1.4"
+      }
+    },
+    {
+      "identity" : "dunneaudiokit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/DunneAudioKit.git",
+      "state" : {
+        "revision" : "dd0a417239ba345e03ca8ffe936d052d6a8239ea",
+        "version" : "5.6.1"
       }
     },
     {
@@ -62,6 +62,15 @@
       "state" : {
         "revision" : "ee7d9542078ae48b24744a67c0350a12f9de354b",
         "version" : "5.6.1"
+      }
+    },
+    {
+      "identity" : "sporthaudiokit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/SporthAudioKit.git",
+      "state" : {
+        "revision" : "638c95036430ce23ba2810101de319ed31f481bb",
+        "version" : "5.5.1"
       }
     }
   ],

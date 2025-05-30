@@ -5,31 +5,16 @@
 //  Created by Eli Pouliot on 7/5/24.
 //
 
-import Foundation
 import SwiftUI
-
-struct RecordedDrone: Identifiable, Codable {
-    let id: UUID
-    let frequency:Double
-    let noteName:String
-    let pitchClass:String
-    
-    init(id: UUID = UUID(), frequency: Double, noteName: String, pitchClass: String) {
-        self.id = id
-        self.frequency = frequency
-        self.noteName = noteName
-        self.pitchClass = pitchClass
-    }
-}
 
 struct Preset: Identifiable, Codable {
     var id = UUID()
     let name: String
-    let list: Array<RecordedDrone>
+    let list: Array<Drone>
 }
 
 class RecordingManager : ObservableObject {
-    @Published var recorded: Array<RecordedDrone>
+    @Published var recorded: Array<Drone>
     @Published var recording: Bool
     
     @Published var presets: Array<Preset> {
@@ -41,7 +26,7 @@ class RecordingManager : ObservableObject {
     
     
     init() {
-        recorded = [RecordedDrone]()
+        recorded = [Drone]()
         recording = false
         
         if let data = UserDefaults.standard.data(forKey: PresetKey) {
@@ -63,7 +48,7 @@ class RecordingManager : ObservableObject {
         recorded = []
     }
     
-    func add(name: String, list: Array<RecordedDrone>) {
+    func add(name: String, list: Array<Drone>) {
         presets.append(Preset(name: name, list: list))
     }
     
@@ -84,9 +69,6 @@ struct Recorded: View {
     @ObservedObject var synth: SynthManager
     
     var isPedal: Bool
-    
-    
-    @State private var isTapped: Bool = false
     
     @State private var name: String = ""
     
@@ -150,6 +132,7 @@ struct Recorded: View {
                     .toolbar {
                         EditButton()
                     }
+                    
                 } detail: {
                     if recorder.recorded.count == 0 {
                         Text("Nothing here yet")
@@ -158,7 +141,7 @@ struct Recorded: View {
                             GeometryReader {geo in
                                 LazyHStack(spacing: 0) {
                                     ForEach(recorder.recorded) {drone in
-                                        Drone(noteName: drone.noteName, pitchClass: drone.pitchClass, diapason: diapason, stop: stop, displayMode: displayMode, frequency: drone.frequency, synth: synth, recorder: recorder)
+                                        DroneButton(drone: drone, displayMode: displayMode, recorder: recorder, synth:synth, droneRadius: 27.0)
                                     }
                                 }
                                 .containerRelativeFrame(.horizontal, alignment: .center)
@@ -168,7 +151,7 @@ struct Recorded: View {
                         
                         
                         if isPedal {
-                            PedalDrone(isTapped: $isTapped, synth: synth, recorder: recorder, displayMode: displayMode)
+                            PedalDrone(synth: synth, recorder: recorder, displayMode: displayMode)
                         }
                     }
                     
@@ -241,33 +224,35 @@ struct SavePopUp: View {
 }
 
 struct PedalDrone: View {
-    @Binding var isTapped: Bool
     @ObservedObject var synth: SynthManager
     @ObservedObject var recorder: RecordingManager
-    @FocusState private var isFocused: Bool
-    
     var displayMode: DisplayMode
+    
+    @State private var isTapped = false
+    @FocusState private var isFocused: Bool
     
     @SceneStorage("Recorded.index")
     private var index = 0
     
     private func forward() {
         index += 1
+        updateQueue(recorder.recorded[index])
     }
     private func backward() {
         index -= 1
+        updateQueue(recorder.recorded[index])
     }
     private func reset() {
         index = 0
     }
     
+    //labels the pedal button to keep with the current index
     private var overlayer: String {
         if index >= 0 && index < recorder.recorded.count {
             return label(Drone: recorder.recorded[index])
         } else {return ""}
     }
-    
-    private func label(Drone: RecordedDrone) -> String {
+    private func label(Drone: Drone) -> String {
         switch displayMode {
         case .frequency:
             return "\(String(format: "%.1f", Drone.frequency))"
@@ -278,49 +263,65 @@ struct PedalDrone: View {
         }
     }
     
+    //mirrors the usual synth.queue, to avoid publishing changes as same time as view updates
+    @State private var tempQueue: [Drone] = []
+    private func turnOn() {
+        tempQueue.append(recorder.recorded[index])
+    }
+    private func updateQueue(_ drone: Drone) {
+        if isTapped {
+            tempQueue[0] = drone
+        }
+    }
+    private func turnOff() {
+        tempQueue = []
+        isTapped = false
+    }
+    
     var body: some View {
         if #available(iOS 17.0, *) {
             let circleColor = isTapped ? Color.accentColor : Color.gray
             Button(action: {
                 isTapped.toggle()
-                if !isTapped {synth.stopPlaying1()}
-                if isTapped { if index >= 0 && index < recorder.recorded.count {synth.playRecordPitch(frequency: recorder.recorded[index].frequency)} else {isTapped = false}}
+                if !isTapped {synth.clearQueue()} else {turnOn()}
             })
             {
-                Circle()
-                    .fill(circleColor)
-                    .frame(width: 27.0 * 2, height: 27.0 * 2)
-                    .overlay(
-                        DroneLabel(label: overlayer))
+                if recorder.recorded.isEmpty {EmptyView()} else {
+                    Circle()
+                        .fill(circleColor)
+                        .frame(width: 27.0 * 2, height: 27.0 * 2)
+                        .overlay(
+                            ButtonLabel(displayMode: displayMode, frequency: recorder.recorded[index].frequency, noteName: recorder.recorded[index].noteName, pitchClass: recorder.recorded[index].pitchClass))
+                }
             }
             .focusable()
             .focused($isFocused)
             .focusEffectDisabled()
-            .onKeyPress(keys: [KeyEquivalent.downArrow, KeyEquivalent.leftArrow], action: { press in
+            .onKeyPress(keys: [KeyEquivalent.downArrow, KeyEquivalent.rightArrow], action: { press in
+                print("i pressed down")
                 if index >= 0 && index < recorder.recorded.count - 1 {
                     forward()
-                    if isTapped{
-                        synth.playRecordPitch(frequency: recorder.recorded[index].frequency)
-                    }
                 } else if index == recorder.recorded.count - 1 {
-                    synth.stopPlaying1()
-                    isTapped = false
+                    turnOff()
                 }
                 return .handled
+                     
             })
-            .onKeyPress(keys: [KeyEquivalent.upArrow, KeyEquivalent.rightArrow], action: { press in
+            .onKeyPress(keys: [KeyEquivalent.upArrow, KeyEquivalent.leftArrow], action: { press in
+                print("i pressed up")
                 if index > 0 && index < recorder.recorded.count {
                     backward()
-                    if isTapped {
-                        synth.playRecordPitch(frequency: recorder.recorded[index].frequency)
-                    }
                 } else if index == 0 {
-                    synth.stopPlaying1()
-                    isTapped = false
+                    turnOff()
                 }
                 return .handled
             })
+            .onChange(of: tempQueue) {
+                print("changing the queue")
+                synth.queue = tempQueue
+            }
             .onAppear() {
+                print(isTapped)
                 isFocused = true
                 reset()
             }

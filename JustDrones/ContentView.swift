@@ -7,12 +7,12 @@
 
 import SwiftUI
 
+
 enum DisplayMode: String {
     case pitchClass
     case frequency
     case noteName
 }
-
 enum TuningMode: String {
     case Tonnetz
     case CircleFifths
@@ -20,42 +20,37 @@ enum TuningMode: String {
 }
 
 struct ContentView: View {
-    @ObservedObject var theSynth = SynthManager()
+    //it would be good to organize the variables to be in the same order consistently
+    @State var theSynth = SynthManager()
     @ObservedObject var theRecorder = RecordingManager()
+    @ObservedObject var theDroneManager = DroneManager()
     
-    @State private var isSynthMenuOpen = false
-    @State private var isControlMenuOpen = false
-    @State private var isRandomMenuOn = false
+    @SceneStorage("ContentView.synthMenu") private var isSynthMenuOpen = false
+    @SceneStorage("ContentView.controlMenu") private var isControlMenuOpen = false
+    @SceneStorage("ContentView.randomMenu") private var isRandomMenuOn = false
+    @SceneStorage("Recorded.isPedal") private var isPedal = true
+    @SceneStorage("ContentView.displayMode") private var displayMode = DisplayMode.noteName
+    @SceneStorage("ContentView.tuningMode") private var tuningMode = TuningMode.Tonnetz
     
-    @SceneStorage("Recorded.isPedal")
-        private var isPedal = true
-    
-    @State private var diapason = 441
-    @State private var stop = 16
-    
-    @AppStorage("ContentView.displayMode")
-        private var displayMode = DisplayMode.noteName
-    @AppStorage("ContentView.tuningMode")
-        private var tuningMode = TuningMode.Tonnetz
     
     var body: some View {
         ZStack{
             VStack {
-                
                 //Drone views
                 VStack(spacing: 5) {
-                    if tuningMode == .Tonnetz {
-                        Tonnetz(diapason: diapason, stop: stop, displayMode: displayMode, synth: theSynth, recorder: theRecorder)
-                    } else if tuningMode == .CircleFifths {
-                        CircleOfFifths(diapason: diapason, stop: stop, displayMode: displayMode, synth: theSynth, recorder: theRecorder)
-                    } else if tuningMode == .Recorded {
+                    switch tuningMode {
+                    case .Tonnetz:
+                        Tonnetz(displayMode: displayMode, synth: theSynth, recorder: theRecorder, droneManager: theDroneManager)
+                    case .CircleFifths:
+                        CircleOfFifths(displayMode: displayMode, synth: theSynth, recorder: theRecorder, droneManager: theDroneManager)
+                    case .Recorded:
                         if #available(iOS 17.0, *) {
-                            Recorded(diapason: diapason, stop: stop, displayMode: displayMode, recorder: theRecorder, synth: theSynth, isPedal: isPedal)
+                            Recorded(diapason: 440, stop: 16, displayMode: displayMode, recorder: theRecorder, synth: theSynth, isPedal: isPedal)
                                 .onAppear() {theRecorder.recording = false}
                         }
+                        else {Text("Recorded not available below iOS 17")}
                     }
                 }
-
                 //Buttons for menus
                 HStack(alignment: .center, spacing: 20) {
                     Button(action: {
@@ -85,20 +80,17 @@ struct ContentView: View {
                     Button(action: {
                         theRecorder.recording.toggle()
                     }) {
-                        if theRecorder.recording {
                             Image(systemName: "stop.circle")
                                 .font(.system(size: 24))
-                                .foregroundColor(.red)} else {
-                            Image(systemName: "record.circle")
-                                .font(.system(size: 24))
-                                .foregroundColor(.blue)
-                            }
+                                .foregroundStyle(theRecorder.recording ? .red : .blue)
+                            
                     }
                 }
             }
             
+            //Menu displays
             if isSynthMenuOpen {SynthMenu(synth: theSynth, isSynthMenuOpen: $isSynthMenuOpen)}
-            if isControlMenuOpen {ControlMenu(isControlMenuOpen: $isControlMenuOpen, displayMode: $displayMode, tuningMode: $tuningMode, diapason: $diapason, stop: $stop, isPedal: $isPedal)}
+            if isControlMenuOpen {ControlMenu(droneManager: theDroneManager, synth: theSynth, isControlMenuOpen: $isControlMenuOpen, displayMode: $displayMode, tuningMode: $tuningMode, isPedal: $isPedal)}
             if isRandomMenuOn {RandomMenu(isRandomMenuOn: $isRandomMenuOn)}
             
         }

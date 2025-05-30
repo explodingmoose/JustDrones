@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="600"
+   width="800"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="SineWaveform.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.38336904"
+     inkscape:cx="384.74677"
+     inkscape:cy="159.11562"
+     inkscape:window-width="1192"
+     inkscape:window-height="707"
+     inkscape:window-x="209"
+     inkscape:window-y="37"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg9" />
+  <g
+     id="Notes"
+     font-family="'LucidaGrande', 'Lucida Grande', sans-serif"
+     font-size="13">
+    <rect
+       fill="white"
+       height="600.0"
+       width="800.0"
+       x="0.0"
+       y="0.0"
+       id="rect1" />
+    <g
+       font-size="13"
+       id="g3">
+      <text
+         x="18.0"
+         y="176.0"
+         id="text1">Small</text>
+      <text
+         x="18.0"
+         y="376.0"
+         id="text2">Medium</text>
+      <text
+         x="18.0"
+         y="576.0"
+         id="text3">Large</text>
+    </g>
+    <g
+       font-size="9"
+       id="g7">
+      <text
+         x="250.0"
+         y="30.0"
+         id="text4">Ultralight</text>
+      <text
+         x="450.0"
+         y="30.0"
+         id="text5">Regular</text>
+      <text
+         x="650.0"
+         y="30.0"
+         id="text6">Black</text>
+      <text
+         id="template-version"
+         fill="#505050"
+         text-anchor="end"
+         x="785.0"
+         y="575.0">Template v.3.0</text>
+      <a
+         href="https://wangchujiang.com/#/app"
+         id="a7">
+        <text
+           fill="#505050"
+           text-anchor="end"
+           x="785.0"
+           y="590.0"
+           id="text7">https://wangchujiang.com/#/app</text>
+      </a>
+    </g>
+  </g>
+  <g
+     id="Guides"
+     stroke="rgb(39, 170, 225)"
+     stroke-width="0.5">
+    <path
+       id="Capline-S"
+       d="M18,76 l800,0" />
+    <path
+       id="H-reference"
+       d="M85,145.755 L87.685,145.755 L113.369,79.287 L114.052,79.287 L114.052,76 L112.148,76 L85,145.755 Z M95.693,121.536 L130.996,121.536 L130.263,119.313 L96.474,119.313 L95.693,121.536 Z M139.15,145.755 L141.787,145.755 L114.638,76 L113.466,76 L113.466,79.287 L139.15,145.755 Z"
+       stroke="none" />
+    <path
+       id="Baseline-S"
+       d="M18,146 l800,0" />
+    <path
+       id="left-margin-Ultralight-S"
+       d="M216.068,56 l0,110" />
+    <path
+       id="right-margin-Ultralight-S"
+       d="M313.932,56 l0,110" />
+    <path
+       id="left-margin-Regular-S"
+       d="M416.068,56 l0,110" />
+    <path
+       id="right-margin-Regular-S"
+       d="M513.932,56 l0,110" />
+    <path
+       id="left-margin-Black-S"
+       d="M616.068,56 l0,110" />
+    <path
+       id="right-margin-Black-S"
+       d="M713.932,56 l0,110" />
+    <path
+       id="Capline-M"
+       d="M18,276 l800,0" />
+    <path
+       id="Baseline-M"
+       d="M18,346 l800,0" />
+    <path
+       id="Capline-L"
+       d="M18,476 l800,0" />
+    <path
+       id="Baseline-L"
+       d="M18,546 l800,0" />
+  </g>
+  <g
+     id="Symbols">
+    <g
+       id="Ultralight-S"
+       transform="matrix(1,0,0,-1,0,222)">
+      <path
+         d="m 300.043,107.111 h -7.778 c -1.281,0 -2.752,-1.661 -2.974,-4.224 C 287.663,83.915 284.699,76 274.726,76 c -10.479,0 -13.611,12.093 -13.611,35 0,17.878 -2.42,27.222 -5.833,27.222 -3.631,0 -5.558,-5.144 -6.816,-19.777 -0.549,-6.299 -5.015,-11.334 -10.731,-11.334 h -7.778 c -2.148,0 -3.889,1.741 -3.889,3.889 0,2.148 1.741,3.889 3.889,3.889 h 7.778 c 1.294,0 2.757,1.65 2.982,4.227 1.633,18.983 4.592,26.884 14.565,26.884 10.479,0 13.611,-12.093 13.611,-35 0,-17.878 2.42,-27.222 5.833,-27.222 3.631,0 5.562,5.156 6.816,19.777 0.544,6.284 5.015,11.334 10.723,11.334 h 7.778 c 2.148,0 3.889,-1.741 3.889,-3.889 0,-2.148 -1.741,-3.889 -3.889,-3.889 z"
+         id="path7" />
+    </g>
+    <g
+       id="Regular-S"
+       transform="matrix(1,0,0,-1,0,222)">
+      <path
+         d="m 500.043,107.111 h -7.778 c -1.282,0 -2.752,-1.661 -2.974,-4.224 C 487.663,83.915 484.699,76 474.726,76 c -10.479,0 -13.611,12.093 -13.611,35 0,17.878 -2.42,27.222 -5.833,27.222 -3.631,0 -5.558,-5.144 -6.816,-19.777 -0.549,-6.299 -5.015,-11.334 -10.731,-11.334 h -7.778 c -2.148,0 -3.889,1.741 -3.889,3.889 0,2.148 1.741,3.889 3.889,3.889 h 7.778 c 1.294,0 2.757,1.65 2.982,4.227 1.633,18.983 4.592,26.884 14.565,26.884 10.479,0 13.611,-12.093 13.611,-35 0,-17.878 2.42,-27.222 5.833,-27.222 3.631,0 5.562,5.156 6.816,19.777 0.544,6.284 5.015,11.334 10.723,11.334 h 7.778 c 2.148,0 3.889,-1.741 3.889,-3.889 0,-2.148 -1.741,-3.889 -3.889,-3.889 z"
+         id="path8" />
+    </g>
+    <g
+       id="Black-S"
+       transform="matrix(1,0,0,-1,0,222)">
+      <path
+         d="m 700.043,107.111 h -7.778 c -1.281,0 -2.752,-1.661 -2.974,-4.224 C 687.663,83.915 684.699,76 674.726,76 c -10.479,0 -13.611,12.093 -13.611,35 0,17.878 -2.42,27.222 -5.833,27.222 -3.631,0 -5.558,-5.144 -6.816,-19.777 -0.549,-6.299 -5.015,-11.334 -10.731,-11.334 h -7.778 c -2.148,0 -3.889,1.741 -3.889,3.889 0,2.148 1.741,3.889 3.889,3.889 h 7.778 c 1.294,0 2.757,1.65 2.982,4.227 1.633,18.983 4.592,26.884 14.565,26.884 10.478,0 13.611,-12.093 13.611,-35 0,-17.878 2.42,-27.222 5.833,-27.222 3.631,0 5.562,5.156 6.816,19.777 0.544,6.284 5.015,11.334 10.723,11.334 h 7.778 c 2.148,0 3.889,-1.741 3.889,-3.889 0,-2.148 -1.741,-3.889 -3.889,-3.889 z"
+         id="path9" />
+    </g>
+  </g>
+</svg>

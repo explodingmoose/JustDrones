@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E42471092D27399100931029 /* DroneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42471082D27399100931029 /* DroneManager.swift */; };
 		E436CD142A9AA3580042B9C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD132A9AA3580042B9C0 /* ContentView.swift */; };
 		E436CD162A9AA35A0042B9C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E436CD152A9AA35A0042B9C0 /* Assets.xcassets */; };
 		E436CD192A9AA35A0042B9C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E436CD182A9AA35A0042B9C0 /* Preview Assets.xcassets */; };
@@ -14,7 +15,7 @@
 		E436CD2D2A9AA35B0042B9C0 /* JustDronesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD2C2A9AA35B0042B9C0 /* JustDronesUITests.swift */; };
 		E436CD2F2A9AA35B0042B9C0 /* JustDronesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD2E2A9AA35B0042B9C0 /* JustDronesUITestsLaunchTests.swift */; };
 		E436CD3C2A9AA38A0042B9C0 /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD3B2A9AA38A0042B9C0 /* Menus.swift */; };
-		E436CD422A9AA4180042B9C0 /* Drones.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD412A9AA4180042B9C0 /* Drones.swift */; };
+		E436CD422A9AA4180042B9C0 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD412A9AA4180042B9C0 /* Buttons.swift */; };
 		E436CD442A9AA4380042B9C0 /* Synth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD432A9AA4380042B9C0 /* Synth.swift */; };
 		E436CD4A2A9AA4990042B9C0 /* DroneLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD492A9AA4990042B9C0 /* DroneLayouts.swift */; };
 		E436CD552A9AA6960042B9C0 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = E436CD542A9AA6960042B9C0 /* AudioKit */; };
@@ -26,7 +27,10 @@
 		E48397C92C4996C800AC3351 /* JustDronesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48397C82C4996C800AC3351 /* JustDronesApp.swift */; };
 		E48733FD2C304AB100E6DF8E /* Controls in Frameworks */ = {isa = PBXBuildFile; productRef = E48733FC2C304AB100E6DF8E /* Controls */; };
 		E48733FF2C38EBF100E6DF8E /* RecordedDrones.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48733FE2C38EBF100E6DF8E /* RecordedDrones.swift */; };
-		E49C40252C4F0F0C006FDE8D /* AirTurnUI in Frameworks */ = {isa = PBXBuildFile; productRef = E49C40242C4F0F0C006FDE8D /* AirTurnUI */; };
+		E4A46EF42DE80D88008D8826 /* SporthAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = E4A46EF32DE80D88008D8826 /* SporthAudioKit */; };
+		E4A46EF72DE8E967008D8826 /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = E4A46EF62DE8E967008D8826 /* AudioKitUI */; };
+		E4A46EFA2DEA1F79008D8826 /* StyledPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A46EF92DEA1F79008D8826 /* StyledPicker.swift */; };
+		E4DA685E2DE68846005C5CA9 /* DunneAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = E4DA685D2DE68846005C5CA9 /* DunneAudioKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E42471082D27399100931029 /* DroneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneManager.swift; sourceTree = "<group>"; };
 		E436CD0E2A9AA3580042B9C0 /* JustDrones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustDrones.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E436CD112A9AA3580042B9C0 /* JustDrones.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JustDrones.xcodeproj; path = ../JustDrones.xcodeproj; sourceTree = "<group>"; };
 		E436CD132A9AA3580042B9C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E436CD152A9AA35A0042B9C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E436CD182A9AA35A0042B9C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -58,7 +62,7 @@
 		E436CD2C2A9AA35B0042B9C0 /* JustDronesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustDronesUITests.swift; sourceTree = "<group>"; };
 		E436CD2E2A9AA35B0042B9C0 /* JustDronesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustDronesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E436CD3B2A9AA38A0042B9C0 /* Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
-		E436CD412A9AA4180042B9C0 /* Drones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drones.swift; sourceTree = "<group>"; };
+		E436CD412A9AA4180042B9C0 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		E436CD432A9AA4380042B9C0 /* Synth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synth.swift; sourceTree = "<group>"; };
 		E436CD492A9AA4990042B9C0 /* DroneLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneLayouts.swift; sourceTree = "<group>"; };
 		E436CD582A9AAA970042B9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 		E48372ED2AA666C6008D33ED /* BravuraText.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BravuraText.otf; sourceTree = "<group>"; };
 		E48397C82C4996C800AC3351 /* JustDronesApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JustDronesApp.swift; sourceTree = "<group>"; };
 		E48733FE2C38EBF100E6DF8E /* RecordedDrones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordedDrones.swift; sourceTree = "<group>"; };
+		E4A46EF92DEA1F79008D8826 /* StyledPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,9 +78,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E49C40252C4F0F0C006FDE8D /* AirTurnUI in Frameworks */,
+				E4A46EF42DE80D88008D8826 /* SporthAudioKit in Frameworks */,
 				E436CD572A9AA69D0042B9C0 /* SoundpipeAudioKit in Frameworks */,
+				E4DA685E2DE68846005C5CA9 /* DunneAudioKit in Frameworks */,
 				E48733FD2C304AB100E6DF8E /* Controls in Frameworks */,
+				E4A46EF72DE8E967008D8826 /* AudioKitUI in Frameworks */,
 				E436CD552A9AA6960042B9C0 /* AudioKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,7 +107,6 @@
 		E436CD052A9AA3580042B9C0 = {
 			isa = PBXGroup;
 			children = (
-				E43D7E772C4EAA570054D7B4 /* Launch Screen.storyboard */,
 				E436CD102A9AA3580042B9C0 /* JustDrones */,
 				E436CD212A9AA35B0042B9C0 /* JustDronesTests */,
 				E436CD2B2A9AA35B0042B9C0 /* JustDronesUITests */,
@@ -122,17 +128,19 @@
 		E436CD102A9AA3580042B9C0 /* JustDrones */ = {
 			isa = PBXGroup;
 			children = (
+				E43D7E772C4EAA570054D7B4 /* Launch Screen.storyboard */,
 				E436CD582A9AAA970042B9C0 /* Info.plist */,
-				E436CD112A9AA3580042B9C0 /* JustDrones.xcodeproj */,
+				E436CD152A9AA35A0042B9C0 /* Assets.xcassets */,
+				E48372ED2AA666C6008D33ED /* BravuraText.otf */,
 				E48397C82C4996C800AC3351 /* JustDronesApp.swift */,
 				E436CD132A9AA3580042B9C0 /* ContentView.swift */,
 				E436CD3B2A9AA38A0042B9C0 /* Menus.swift */,
-				E436CD432A9AA4380042B9C0 /* Synth.swift */,
-				E436CD412A9AA4180042B9C0 /* Drones.swift */,
+				E4A46EF92DEA1F79008D8826 /* StyledPicker.swift */,
+				E42471082D27399100931029 /* DroneManager.swift */,
 				E436CD492A9AA4990042B9C0 /* DroneLayouts.swift */,
+				E436CD412A9AA4180042B9C0 /* Buttons.swift */,
+				E436CD432A9AA4380042B9C0 /* Synth.swift */,
 				E48733FE2C38EBF100E6DF8E /* RecordedDrones.swift */,
-				E436CD152A9AA35A0042B9C0 /* Assets.xcassets */,
-				E48372ED2AA666C6008D33ED /* BravuraText.otf */,
 				E436CD172A9AA35A0042B9C0 /* Preview Content */,
 			);
 			path = JustDrones;
@@ -170,11 +178,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E48397C62C49968F00AC3351 /* Products */ = {
-			isa = PBXGroup;
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -195,7 +198,9 @@
 				E436CD542A9AA6960042B9C0 /* AudioKit */,
 				E436CD562A9AA69D0042B9C0 /* SoundpipeAudioKit */,
 				E48733FC2C304AB100E6DF8E /* Controls */,
-				E49C40242C4F0F0C006FDE8D /* AirTurnUI */,
+				E4DA685D2DE68846005C5CA9 /* DunneAudioKit */,
+				E4A46EF32DE80D88008D8826 /* SporthAudioKit */,
+				E4A46EF62DE8E967008D8826 /* AudioKitUI */,
 			);
 			productName = JustDrones;
 			productReference = E436CD0E2A9AA3580042B9C0 /* JustDrones.app */;
@@ -273,16 +278,12 @@
 				E436CD512A9AA5290042B9C0 /* XCRemoteSwiftPackageReference "AudioKit" */,
 				E436CD522A9AA55B0042B9C0 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */,
 				E4F790A82C2F5ED300021881 /* XCRemoteSwiftPackageReference "Controls" */,
-				E49C40232C4F0EDA006FDE8D /* XCRemoteSwiftPackageReference "AirTurnUI-source-SP" */,
+				E42EA6AB2DE67EDD00FA8DD5 /* XCRemoteSwiftPackageReference "DunneAudioKit" */,
+				E4A46EF22DE80D7A008D8826 /* XCRemoteSwiftPackageReference "SporthAudioKit" */,
+				E4A46EF52DE8E906008D8826 /* XCRemoteSwiftPackageReference "AudioKitUI" */,
 			);
 			productRefGroup = E436CD0F2A9AA3580042B9C0 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = E48397C62C49968F00AC3351 /* Products */;
-					ProjectRef = E436CD112A9AA3580042B9C0 /* JustDrones.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				E436CD0D2A9AA3580042B9C0 /* JustDrones */,
@@ -328,11 +329,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E48397C92C4996C800AC3351 /* JustDronesApp.swift in Sources */,
+				E4A46EFA2DEA1F79008D8826 /* StyledPicker.swift in Sources */,
 				E436CD142A9AA3580042B9C0 /* ContentView.swift in Sources */,
 				E436CD442A9AA4380042B9C0 /* Synth.swift in Sources */,
 				E436CD4A2A9AA4990042B9C0 /* DroneLayouts.swift in Sources */,
-				E436CD422A9AA4180042B9C0 /* Drones.swift in Sources */,
+				E436CD422A9AA4180042B9C0 /* Buttons.swift in Sources */,
 				E48733FF2C38EBF100E6DF8E /* RecordedDrones.swift in Sources */,
+				E42471092D27399100931029 /* DroneManager.swift in Sources */,
 				E436CD3C2A9AA38A0042B9C0 /* Menus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +503,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JustDrones/Info.plist;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Connect to Bluetooth Pedals";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Connect to Bluetooth Pedals";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -508,11 +512,12 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = Tonsoftuners.JustDrones;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -537,6 +542,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JustDrones/Info.plist;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Connect to Bluetooth Pedals";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Connect to Bluetooth Pedals";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -545,11 +551,12 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = Tonsoftuners.JustDrones;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -680,6 +687,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E42EA6AB2DE67EDD00FA8DD5 /* XCRemoteSwiftPackageReference "DunneAudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/DunneAudioKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
 		E436CD512A9AA5290042B9C0 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AudioKit/AudioKit.git";
@@ -696,12 +711,20 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		E49C40232C4F0EDA006FDE8D /* XCRemoteSwiftPackageReference "AirTurnUI-source-SP" */ = {
+		E4A46EF22DE80D7A008D8826 /* XCRemoteSwiftPackageReference "SporthAudioKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AirTurn/AirTurnUI-source-SP.git";
+			repositoryURL = "https://github.com/AudioKit/SporthAudioKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.8.2;
+				minimumVersion = 5.5.1;
+			};
+		};
+		E4A46EF52DE8E906008D8826 /* XCRemoteSwiftPackageReference "AudioKitUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKitUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.7;
 			};
 		};
 		E4F790A82C2F5ED300021881 /* XCRemoteSwiftPackageReference "Controls" */ = {
@@ -730,10 +753,20 @@
 			package = E4F790A82C2F5ED300021881 /* XCRemoteSwiftPackageReference "Controls" */;
 			productName = Controls;
 		};
-		E49C40242C4F0F0C006FDE8D /* AirTurnUI */ = {
+		E4A46EF32DE80D88008D8826 /* SporthAudioKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E49C40232C4F0EDA006FDE8D /* XCRemoteSwiftPackageReference "AirTurnUI-source-SP" */;
-			productName = AirTurnUI;
+			package = E4A46EF22DE80D7A008D8826 /* XCRemoteSwiftPackageReference "SporthAudioKit" */;
+			productName = SporthAudioKit;
+		};
+		E4A46EF62DE8E967008D8826 /* AudioKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4A46EF52DE8E906008D8826 /* XCRemoteSwiftPackageReference "AudioKitUI" */;
+			productName = AudioKitUI;
+		};
+		E4DA685D2DE68846005C5CA9 /* DunneAudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E42EA6AB2DE67EDD00FA8DD5 /* XCRemoteSwiftPackageReference "DunneAudioKit" */;
+			productName = DunneAudioKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

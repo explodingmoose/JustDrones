@@ -9,162 +9,342 @@ import Foundation
 import AudioKit
 import SoundpipeAudioKit
 import AudioKitEX
+import DunneAudioKit
+import SporthAudioKit
 
-enum OscillatorShapes {
-    case sine
-    case saw
-    case square
-    case triangle
+//not needed outside of voice
+struct WavetableHelper {
+    static public var tableArray = [Table(.sine), Table(.triangle), Table(.square), Table(.sawtooth)]
+}
+
+struct Voice {
+    var DCO1 = MorphingOscillator(waveformArray: WavetableHelper.tableArray)
+    var DCO2 = MorphingOscillator(waveformArray: WavetableHelper.tableArray)
+    var subOsc = Oscillator(waveform: Table(.sine))
+    var voiceMixer: DryWetMixer
+    init() {
+        voiceMixer = DryWetMixer(dry: DCO1, wet: DCO2, balance: AUValue(0.50))
+    }
 }
 
 class SynthManager: ObservableObject {
     
-    var O1V1: DynamicOscillator
-    var O2V1: DynamicOscillator
-    var O1V2: DynamicOscillator
-    var O2V2: DynamicOscillator
+    var voice1 = Voice()
+    var voice2 = Voice()
+    var voice3 = Voice()
+    var voice4 = Voice()
+    var voiceArray: [Voice] = []
     
-    var mixer1: Mixer
-    var mixer2: Mixer
-    var theMixer: DryWetMixer
-    
-    @Published var shapebalance: Float = 0.50 {
-        didSet{
-            theMixer.balance = AUValue(shapebalance)
-        }
-    }
-    
-    var LPF: LowPassFilter
+    var voiceMixer: Mixer
+    var subMixer: Mixer
+    var filter: OperationEffect
+    var phaser: Phaser
     var compressor: Compressor
     var engine: AudioEngine
     
-    func tableShape(shape: OscillatorShapes) -> TableType {
-        switch shape {
-        case .sine: return TableType.sine
-        case .saw: return TableType.sawtooth
-        case .square: return TableType.square
-        case .triangle: return TableType.triangle
+    
+    //to allow bypass
+    var isPhaser: Bool = true //phaser effect
+    var isFilter: Bool = true //Moog Ladder filter (low pass)
+    @Published var isSub: Bool = true {
+        didSet {
+            if isSub {voiceMixer.addInput(subMixer)} else {voiceMixer.removeInput(subMixer)}
+            updateQueue()
         }
-  
+    }//Sub Oscillator (sine wave at octave below)
+    
+    //Drones that are on
+    @Published var queue: [Drone] {
+        didSet {
+            updateQueue()
+            print("updated Queue")
+        }
     }
     
-    @Published var FirstShape: OscillatorShapes = .sine {
-        didSet {
-            O1V1.setWaveform(Table(tableShape(shape: FirstShape)))
-            O1V2.setWaveform(Table(tableShape(shape: FirstShape)))
+    //Oscillator Parameters
+    private func updateDCObalance(_ shapebalance: Float) {
+            let balance = AUValue(shapebalance)
+            voiceArray.forEach { voice in
+                voice.voiceMixer.balance = balance
+            }
+        }
+    @Published var shapebalance: Float = 0.5 {
+        didSet{
+            updateDCObalance(shapebalance)
+            UserDefaults.standard.set(String(shapebalance), forKey: "shapebalance")
         }
     }
-    @Published var SecondShape: OscillatorShapes = .sine {
+    @Published var O1Morph: Float = 0.0 {
         didSet {
-            O2V1.setWaveform(Table(tableShape(shape: SecondShape)))
-            O2V2.setWaveform(Table(tableShape(shape: SecondShape)))
+            voiceArray.forEach { voice in
+                voice.DCO1.index = O1Morph
+            }
+            UserDefaults.standard.set(String(O1Morph), forKey: "O1Morph")
+        }
+    }
+    @Published var O2Morph: Float = 0.0 {
+        didSet {
+            voiceArray.forEach { voice in
+                voice.DCO2.index = O2Morph
+            }
+            UserDefaults.standard.set(String(O2Morph), forKey: "O2Morph")
+        }
+    }
+    
+    //SubOsc Parameters
+    @Published var subOctave: SubOctave = .Ottava {
+        didSet {
+            updateQueue()
+            UserDefaults.standard.set(String(subOctave.rawValue), forKey: "subOctave")
+        }
+    }
+    private func subOctaveRatio() -> Float {
+        switch subOctave {
+        case .Ottava:
+            return 2
+        case .Quindicecisma:
+            return 4
         }
     }
 
+    //Filter Parameters
     @Published var cutoffFrequency: Float = 0.75 {
         didSet {
-            LPF.cutoffFrequency = AUValue(cutoffFrequency * 2000)
+            filter.parameter1 = AUValue(cutoffFrequency * 2000)
+            UserDefaults.standard.set(String(cutoffFrequency), forKey: "cutoff")
         }
     }
-    
     @Published var resonance: Float = 0.50 {
         didSet {
-            LPF.resonance = AUValue(resonance)
+            filter.parameter2 = AUValue(resonance)
+            UserDefaults.standard.set(String(resonance), forKey: "resonance")
         }
     }
-
-    var Drone1 = 440.0
-    var Drone2 = 440.0
-    
-    @Published var frequencyinputs: Array<Double> = [] {
+        
+    //Phaser Parameters
+    @Published var notchFloor: Float = 1000 {
         didSet {
-            if frequencyinputs.count > 2 {
-                    frequencyinputs.remove(at: 0)
-                }
-            if frequencyinputs.count >= 1 {
-                Drone1 = frequencyinputs[0]
-            }
-            if frequencyinputs.count == 2 {
-                Drone2 = frequencyinputs[1] }
-
-            O1V1.frequency = AUValue(Drone1)
-            O2V1.frequency = AUValue(Drone1)
-
-            O1V2.frequency = AUValue(Drone2)
-            O2V2.frequency = AUValue(Drone2)
-            
-            if frequencyinputs.count == 2 {
-                
-                O1V2.stop()
-                O2V2.stop()
-                O1V2.start()
-                O2V2.start()
-            }
+            //20 - 5000Hz
+            phaser.notchMinimumFrequency = AUValue(notchFloor)
+            UserDefaults.standard.set(String(notchFloor), forKey: "notchFloor")
+        }
+    }
+    @Published var notchCeiling: Float = 5000 {
+        didSet {
+            //20 - 10000Hz
+            phaser.notchMaximumFrequency = AUValue(notchCeiling)
+            UserDefaults.standard.set(String(notchCeiling), forKey: "notchCeiling")
+        }
+    }
+    @Published var notchFrequency: Float = 1.5 {
+        didSet {
+            //1.1-4Hz
+            phaser.notchFrequency = AUValue(notchFrequency)
+            UserDefaults.standard.set(String(notchFrequency), forKey: "notchFrequency")
+        }
+    }
+    @Published var phaserDepth: Float = 50 {
+        didSet {
+            //0-1
+            phaser.depth = AUValue(phaserDepth/100)
+            UserDefaults.standard.set(String(phaserDepth), forKey: "phaserDepth")
+        }
+    }
+    @Published var phaserFeedback: Float = 0 {
+        didSet {
+            phaser.feedback = AUValue(phaserFeedback/100)
+            UserDefaults.standard.set(String(phaserFeedback), forKey: "phaserFeedback")
+        }
+    }
+    @Published var lfoBPM: Float = 30.0 {
+        didSet {
+            //24 - 360 BPM
+            phaser.lfoBPM = AUValue(lfoBPM)
+            UserDefaults.standard.set(String(lfoBPM), forKey: "lfoBPM")
+        }
+    }
+    
+    //LFO Parameters
+    @Published var lfofrequency: Float = 1 {
+        didSet {
+            filter.parameter4 = AUValue(lfofrequency)
+            UserDefaults.standard.set(String(lfofrequency), forKey: "lfofrequency")
+        }
+    }
+    @Published var lfoamplitude: Float = 1000 {
+        didSet {
+            //in hz
+            filter.parameter3 = AUValue(lfoamplitude)
+            UserDefaults.standard.set(String(lfoamplitude), forKey: "lfoamplitude")
+        }
+    }
+    @Published var lfoindex: Float = 0.0 {
+        didSet {
+            filter.parameter5 = AUValue(lfoindex)
+            UserDefaults.standard.set(String(lfoindex), forKey: "lfoindex")
+        }
+    }
+    
+    //Master
+    @Published var masterGain: Float = 0 {
+        didSet {
+            compressor.masterGain = AUValue(masterGain)
         }
     }
     
     init() {
-        O1V1 = DynamicOscillator(waveform: Table(.sine))
-        O2V1 = DynamicOscillator(waveform: Table(.sine))
-        O1V2 = DynamicOscillator(waveform: Table(.sine))
-        O2V2 = DynamicOscillator(waveform: Table(.sine))
-        
-        mixer1 = Mixer(O1V1, O1V2)
-        mixer2 = Mixer(O2V1, O2V2)
-        theMixer = DryWetMixer(dry: mixer1, wet: mixer2, balance: AUValue(0.50))
-        
-        LPF = LowPassFilter(theMixer, cutoffFrequency: 1500.0, resonance: 0.50)
-        compressor = Compressor(LPF)
         engine = AudioEngine()
+        //4 voice polyphony
+        voiceMixer = Mixer(voice1.voiceMixer, voice2.voiceMixer, voice3.voiceMixer, voice4.voiceMixer)
+        subMixer = Mixer(voice1.subOsc, voice2.subOsc, voice3.subOsc, voice4.subOsc)
+        
+        //phaser effect
+        phaser = Phaser(voiceMixer, vibratoMode: 0)
+        phaser.stop()
+        //filter with LFO on cutoff
+        filter = OperationEffect(phaser) { input, parameters in
+            
+            let cutoff = parameters[0]
+            let rez = parameters[1]
+            let oscAmp = parameters[2]
+            let oscRate = parameters[3]
+            let oscIndex = parameters[4]
+
+            let lfo = Operation.morphingOscillator(frequency: oscRate,
+                                                     amplitude: oscAmp,
+                                                     index: oscIndex)
+
+            return input.moogLadderFilter(cutoffFrequency: max(lfo + cutoff, 0),
+                                          resonance: rez)
+        }
+        filter.stop()
+        
+        compressor = Compressor(filter)
         engine.output = compressor
         
+        //set up audio engine
         do {
             try engine.start()
         } catch {
             print("Failed to start AudioEngine: \(error)")
         }
-        
         do {
             try Settings.setSession(category: .playback)
         } catch {
             print("error")
         }
         engine.output!.start()
-    }
-    
-    func playPitch(frequency: Double) {
-        frequencyinputs.append(frequency)
-        Drone1 = frequencyinputs[0]
         
-        O1V1.stop()
-        O1V1.start()
-        O2V1.stop()
-        O2V1.start()
+        
+        voiceArray = [voice1, voice2, voice3, voice4]
+        queue = []
+        
+        filter.parameter1 = AUValue(cutoffFrequency * 2000)
+        filter.parameter2 = AUValue(resonance)
+        filter.parameter3 = AUValue(lfoamplitude)
+        filter.parameter4 = AUValue(lfofrequency)
+        compressor.masterGain = AUValue(masterGain)
+        
+        voiceMixer.addInput(subMixer)
+
+        //recall previous waveform settings
+        if let decoded = UserDefaults.standard.string(forKey: "O1Morph") {
+            O1Morph = Float(decoded) ?? 0.0
+        }
+        if let decoded = UserDefaults.standard.string(forKey: "O2Morph") {
+            O2Morph = Float(decoded) ?? 0.0
+        }
+        if let decoded = UserDefaults.standard.string(forKey: "shapebalance") {
+            shapebalance = Float(decoded) ?? 0.50
+            updateDCObalance(shapebalance)
+        }
+        
+        //recall previous filter settings
+        if let decoded = UserDefaults.standard.string(forKey: "cutoff") {
+            cutoffFrequency = Float(decoded) ?? 0.75
+            filter.parameter1 = AUValue(cutoffFrequency * 2000)
+        }
+        if let decoded = UserDefaults.standard.string(forKey: "resonance") {
+            resonance = Float(decoded) ?? 0.50
+            filter.parameter2 = AUValue(resonance)
+        }
+                
+        //recall previous phaser settings
+        if let decoded = UserDefaults.standard.string(forKey: "notchFloor") {
+            phaser.notchMinimumFrequency = AUValue(Float(decoded) ?? 100.0)
+        }
+        if let decoded = UserDefaults.standard.string(forKey: "notchCeiling") {
+            phaser.notchMaximumFrequency = AUValue(Float(decoded) ?? 5000.0)
+        }
+        if let decoded = UserDefaults.standard.string(forKey: "notchFrequency") {
+            phaser.notchFrequency = AUValue(Float(decoded) ?? 1.5)
+        }
+        if let decoded = UserDefaults.standard.string(forKey: "phaserDepth") {
+            phaser.depth = AUValue(Float(decoded) ?? 50) / 100
+        }
+        if let decoded = UserDefaults.standard.string(forKey: "phaserFeedback") {
+            phaser.feedback = AUValue(Float(decoded) ?? 0) / 100
+        }
+        if let decoded = UserDefaults.standard.string(forKey: "lfoBPM") {
+            phaser.lfoBPM = AUValue(Float(decoded) ?? 30.0)
+        }
+        
+        if let decoded = UserDefaults.standard.string(forKey: "lfofrequency") {
+            filter.parameter4 = AUValue(Float(decoded) ?? 1.0)
+        }
+        if let decoded = UserDefaults.standard.string(forKey: "lfoamplitude") {
+            filter.parameter3 = AUValue(Float(decoded) ?? 1000)
+        }
+        if let decoded = UserDefaults.standard.string(forKey: "lfoindex") {
+            filter.parameter5 = AUValue(Float(decoded) ?? 1.0)
+        }
+
+        print(engine.connectionTreeDescription)
     }
     
-    func playPitch2(frequency: Double) {
-        O1V2.frequency = AUValue(frequencyinputs[1])
-        O1V2.frequency = AUValue(frequencyinputs[1])
-        O1V2.start()
-        O2V2.start()
+    func updateQueue() {
+        stopAll()
+        phaser.stop()
+        filter.stop()
+        if !queue.isEmpty {
+            for i in 0..<queue.count {
+                let frequency = AUValue(queue[i].frequency)
+                voiceArray[i].DCO1.frequency = frequency
+                voiceArray[i].DCO2.frequency = frequency
+                voiceArray[i].subOsc.frequency = frequency / subOctaveRatio()
+                startVoice(voiceArray[i])
+            }
+            filter.start()
+            phaser.start()
+        }
+            
+    }
+    func addDrone(_ drone: Drone) {
+        queue.append(drone)
+        print(queue)
+    }
+    func removeDrone(_ drone: Drone) {
+        if !queue.isEmpty {
+            queue.remove(at: queue.firstIndex(of: drone)!)
+        }
+    }
+    func clearQueue() {
+        queue.removeAll()
     }
     
-    func playRecordPitch(frequency: Double) {
-        O1V1.frequency = AUValue(frequency)
-        O2V1.frequency = AUValue(frequency)
-        O1V1.stop()
-        O1V1.start()
-        O2V1.stop()
-        O2V1.start()
+    private func startVoice(_ voice: Voice) {
+        voice.DCO1.start()
+        voice.DCO2.start()
+        if isSub {voice.subOsc.start()}
     }
+    private func stopVoice(_ voice: Voice) {
+        voice.DCO1.stop()
+        voice.DCO2.stop()
+        voice.subOsc.stop()
+    }
+    private func stopAll() {
+        voiceArray.forEach { stopVoice($0) }
+    }
+
     
-    func stopPlaying1() {
-        O1V1.stop()
-        O2V1.stop()
-    }
-    
-    func stopPlaying2() {
-        O1V2.stop()
-        O2V2.stop()
-    }
 }
