@@ -33,21 +33,21 @@ struct Voice {
 
 
 //The Synth Manager behaves as the Conductor
-@Observable class Conductor {
+@Observable class SynthManager {
     
-    var voice1 = Voice()
-    var voice2 = Voice()
-    var voice3 = Voice()
-    var voice4 = Voice()
-    var voiceArray: [Voice] = []
+    @ObservationIgnored var voice1 = Voice()
+    @ObservationIgnored var voice2 = Voice()
+    @ObservationIgnored var voice3 = Voice()
+    @ObservationIgnored var voice4 = Voice()
+    @ObservationIgnored var voiceArray: [Voice] = []
     
-    var engine = AudioEngine()
-    var voiceMixer = Mixer()
-    var subMixer = Mixer()
+    @ObservationIgnored var engine: AudioEngine
+    @ObservationIgnored var voiceMixer: Mixer!
+    @ObservationIgnored var subMixer: Mixer!
     
-    var filter: OperationEffect
-    var phaser: Phaser
-    var compressor: Compressor
+    @ObservationIgnored var filter: OperationEffect!
+    @ObservationIgnored var phaser: Phaser!
+    @ObservationIgnored var compressor: Compressor!
     
     
     //to allow bypass

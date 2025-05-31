@@ -170,15 +170,14 @@ struct SavePopUp: View {
 }
 
 struct PedalDrone: View {
-    @ObservedObject var synth: SynthManager
-    @ObservedObject var recorder: RecordingManager
-    var displayMode: DisplayMode
+    var synth: SynthManager
+    let recorder: RecordingManager
+    let displayMode: DisplayMode
     
     @State private var isTapped = false
     @FocusState private var isFocused: Bool
     
-    @SceneStorage("Recorded.index")
-    private var index = 0
+    @SceneStorage("Recorded.index") private var index = 0
     
     private func forward() {
         index += 1

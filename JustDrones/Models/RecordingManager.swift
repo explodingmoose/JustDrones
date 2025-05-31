@@ -17,10 +17,9 @@ struct Preset: Identifiable, Codable {
     var recorded: Array<Drone>
     var recording: Bool
     
-    @Published var presets: Array<Preset> {
-        didSet {
-            save()
-        }
+    var presets: Array<Preset> {
+    didSet {
+        save()
     }
 }
     private let PresetKey = "PresetKey"
