@@ -3,21 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E42471092D27399100931029 /* DroneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42471082D27399100931029 /* DroneManager.swift */; };
+		E419AFEE2DEB4E5100D6F274 /* ContentViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E419AFED2DEB4E4400D6F274 /* ContentViewPreview.swift */; };
+		E428CD3A2DEB6F0900D8B2A1 /* UIStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = E428CD392DEB6F0400D8B2A1 /* UIStuff.swift */; };
 		E436CD142A9AA3580042B9C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD132A9AA3580042B9C0 /* ContentView.swift */; };
 		E436CD162A9AA35A0042B9C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E436CD152A9AA35A0042B9C0 /* Assets.xcassets */; };
 		E436CD192A9AA35A0042B9C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E436CD182A9AA35A0042B9C0 /* Preview Assets.xcassets */; };
 		E436CD232A9AA35B0042B9C0 /* JustDronesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD222A9AA35B0042B9C0 /* JustDronesTests.swift */; };
 		E436CD2D2A9AA35B0042B9C0 /* JustDronesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD2C2A9AA35B0042B9C0 /* JustDronesUITests.swift */; };
 		E436CD2F2A9AA35B0042B9C0 /* JustDronesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD2E2A9AA35B0042B9C0 /* JustDronesUITestsLaunchTests.swift */; };
-		E436CD3C2A9AA38A0042B9C0 /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD3B2A9AA38A0042B9C0 /* Menus.swift */; };
 		E436CD422A9AA4180042B9C0 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD412A9AA4180042B9C0 /* Buttons.swift */; };
-		E436CD442A9AA4380042B9C0 /* Synth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD432A9AA4380042B9C0 /* Synth.swift */; };
-		E436CD4A2A9AA4990042B9C0 /* DroneLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD492A9AA4990042B9C0 /* DroneLayouts.swift */; };
 		E436CD552A9AA6960042B9C0 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = E436CD542A9AA6960042B9C0 /* AudioKit */; };
 		E436CD572A9AA69D0042B9C0 /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = E436CD562A9AA69D0042B9C0 /* SoundpipeAudioKit */; };
 		E43D7E782C4EAA580054D7B4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43D7E772C4EAA570054D7B4 /* Launch Screen.storyboard */; };
@@ -26,10 +24,8 @@
 		E48372F02AA666C7008D33ED /* BravuraText.otf in Resources */ = {isa = PBXBuildFile; fileRef = E48372ED2AA666C6008D33ED /* BravuraText.otf */; };
 		E48397C92C4996C800AC3351 /* JustDronesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48397C82C4996C800AC3351 /* JustDronesApp.swift */; };
 		E48733FD2C304AB100E6DF8E /* Controls in Frameworks */ = {isa = PBXBuildFile; productRef = E48733FC2C304AB100E6DF8E /* Controls */; };
-		E48733FF2C38EBF100E6DF8E /* RecordedDrones.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48733FE2C38EBF100E6DF8E /* RecordedDrones.swift */; };
 		E4A46EF42DE80D88008D8826 /* SporthAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = E4A46EF32DE80D88008D8826 /* SporthAudioKit */; };
 		E4A46EF72DE8E967008D8826 /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = E4A46EF62DE8E967008D8826 /* AudioKitUI */; };
-		E4A46EFA2DEA1F79008D8826 /* StyledPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A46EF92DEA1F79008D8826 /* StyledPicker.swift */; };
 		E4DA685E2DE68846005C5CA9 /* DunneAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = E4DA685D2DE68846005C5CA9 /* DunneAudioKit */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E42471082D27399100931029 /* DroneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneManager.swift; sourceTree = "<group>"; };
+		E419AFED2DEB4E4400D6F274 /* ContentViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewPreview.swift; sourceTree = "<group>"; };
+		E428CD392DEB6F0400D8B2A1 /* UIStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStuff.swift; sourceTree = "<group>"; };
 		E436CD0E2A9AA3580042B9C0 /* JustDrones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustDrones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E436CD132A9AA3580042B9C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E436CD152A9AA35A0042B9C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,17 +58,18 @@
 		E436CD282A9AA35B0042B9C0 /* JustDronesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustDronesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E436CD2C2A9AA35B0042B9C0 /* JustDronesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustDronesUITests.swift; sourceTree = "<group>"; };
 		E436CD2E2A9AA35B0042B9C0 /* JustDronesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustDronesUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E436CD3B2A9AA38A0042B9C0 /* Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
 		E436CD412A9AA4180042B9C0 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
-		E436CD432A9AA4380042B9C0 /* Synth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synth.swift; sourceTree = "<group>"; };
-		E436CD492A9AA4990042B9C0 /* DroneLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneLayouts.swift; sourceTree = "<group>"; };
 		E436CD582A9AAA970042B9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E43D7E772C4EAA570054D7B4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E48372ED2AA666C6008D33ED /* BravuraText.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BravuraText.otf; sourceTree = "<group>"; };
 		E48397C82C4996C800AC3351 /* JustDronesApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JustDronesApp.swift; sourceTree = "<group>"; };
-		E48733FE2C38EBF100E6DF8E /* RecordedDrones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordedDrones.swift; sourceTree = "<group>"; };
-		E4A46EF92DEA1F79008D8826 /* StyledPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E419AFD42DEA9F0E00D6F274 /* Drone Layouts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Drone Layouts"; sourceTree = "<group>"; };
+		E419AFD92DEAA4BB00D6F274 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+		E419AFDA2DEAA70C00D6F274 /* Menus */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Menus; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E436CD0B2A9AA3580042B9C0 /* Frameworks */ = {
@@ -134,13 +132,11 @@
 				E48372ED2AA666C6008D33ED /* BravuraText.otf */,
 				E48397C82C4996C800AC3351 /* JustDronesApp.swift */,
 				E436CD132A9AA3580042B9C0 /* ContentView.swift */,
-				E436CD3B2A9AA38A0042B9C0 /* Menus.swift */,
-				E4A46EF92DEA1F79008D8826 /* StyledPicker.swift */,
-				E42471082D27399100931029 /* DroneManager.swift */,
-				E436CD492A9AA4990042B9C0 /* DroneLayouts.swift */,
+				E428CD392DEB6F0400D8B2A1 /* UIStuff.swift */,
+				E419AFD92DEAA4BB00D6F274 /* Models */,
+				E419AFDA2DEAA70C00D6F274 /* Menus */,
+				E419AFD42DEA9F0E00D6F274 /* Drone Layouts */,
 				E436CD412A9AA4180042B9C0 /* Buttons.swift */,
-				E436CD432A9AA4380042B9C0 /* Synth.swift */,
-				E48733FE2C38EBF100E6DF8E /* RecordedDrones.swift */,
 				E436CD172A9AA35A0042B9C0 /* Preview Content */,
 			);
 			path = JustDrones;
@@ -149,6 +145,7 @@
 		E436CD172A9AA35A0042B9C0 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				E419AFED2DEB4E4400D6F274 /* ContentViewPreview.swift */,
 				E436CD182A9AA35A0042B9C0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -192,6 +189,11 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E419AFD42DEA9F0E00D6F274 /* Drone Layouts */,
+				E419AFD92DEAA4BB00D6F274 /* Models */,
+				E419AFDA2DEAA70C00D6F274 /* Menus */,
 			);
 			name = JustDrones;
 			packageProductDependencies = (
@@ -250,7 +252,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					E436CD0D2A9AA3580042B9C0 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -329,14 +331,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E48397C92C4996C800AC3351 /* JustDronesApp.swift in Sources */,
-				E4A46EFA2DEA1F79008D8826 /* StyledPicker.swift in Sources */,
 				E436CD142A9AA3580042B9C0 /* ContentView.swift in Sources */,
-				E436CD442A9AA4380042B9C0 /* Synth.swift in Sources */,
-				E436CD4A2A9AA4990042B9C0 /* DroneLayouts.swift in Sources */,
+				E419AFEE2DEB4E5100D6F274 /* ContentViewPreview.swift in Sources */,
+				E428CD3A2DEB6F0900D8B2A1 /* UIStuff.swift in Sources */,
 				E436CD422A9AA4180042B9C0 /* Buttons.swift in Sources */,
-				E48733FF2C38EBF100E6DF8E /* RecordedDrones.swift in Sources */,
-				E42471092D27399100931029 /* DroneManager.swift in Sources */,
-				E436CD3C2A9AA38A0042B9C0 /* Menus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +406,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = X8YW77H8A9;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -425,7 +424,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -470,6 +469,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = X8YW77H8A9;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -481,7 +481,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -499,7 +499,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"JustDrones/Preview Content\"";
-				DEVELOPMENT_TEAM = X8YW77H8A9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JustDrones/Info.plist;
@@ -513,6 +512,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -538,7 +538,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"JustDrones/Preview Content\"";
-				DEVELOPMENT_TEAM = X8YW77H8A9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JustDrones/Info.plist;
@@ -552,6 +551,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -572,13 +572,11 @@
 		E436CD362A9AA35B0042B9C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X8YW77H8A9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Tonsoftuners.JustDronesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -592,13 +590,11 @@
 		E436CD372A9AA35B0042B9C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X8YW77H8A9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Tonsoftuners.JustDronesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -612,11 +608,10 @@
 		E436CD392A9AA35B0042B9C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X8YW77H8A9;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Tonsoftuners.JustDronesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -630,11 +625,10 @@
 		E436CD3A2A9AA35B0042B9C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X8YW77H8A9;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Tonsoftuners.JustDronesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

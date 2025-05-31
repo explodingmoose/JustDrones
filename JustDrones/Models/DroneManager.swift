@@ -53,8 +53,6 @@ class Drone: Identifiable, Equatable, Codable {
     let noteName:String
     let pitchClass:String
     
-    var isDroneOn: Bool = false
-    
     init(id: UUID = UUID(), frequency: Double, noteName: String, pitchClass: String) {
         self.id = id
         self.frequency = frequency
@@ -64,7 +62,7 @@ class Drone: Identifiable, Equatable, Codable {
 }
 
 //Handles creation and tuning of drones, tuning parameters
-class DroneManager: ObservableObject {
+@Observable class DroneManager {
     private func frequency(temper: Double, fifths: Int, thirds: Int, diapason: Int) -> Double {
         let diapason = Double(diapason)
         let fifthpower = pow(temper, abs(Double(fifths)))
@@ -73,46 +71,6 @@ class DroneManager: ObservableObject {
         if fifths < 0 {frequency /= fifthpower} else {frequency *= fifthpower}
         if thirds < 0 {frequency /= thirdpower} else {frequency *= thirdpower}
         return frequency
-    }
-    
-    private func updateTonnetz() {
-        for i in 0...8 {
-            for j in 0...4 {
-                let fifths = i-4
-                let thirds = j-2
-                let frequency = frequency(temper: Intervals.PFifth, fifths: fifths, thirds: thirds, diapason: diapason)
-                TonnetzManager[i][j].frequency = normfrequency(frequency: frequency, diapason: diapason, stop: stop)
-            }
-        }
-    }
-    private func updateCoF() {
-        for i in 0...23 {
-            let fifths = i - 12
-            let frequency = frequency(temper: temperedfifth, fifths: fifths, thirds: 0, diapason: diapason)
-            CoFManager[i].frequency = normfrequency(frequency: frequency, diapason: diapason, stop: stop)
-        }
-    }
-    
-    //When these variables are updated, update the Tonnetz and CoF, then save the value
-    @Published var diapason: Int = 440 {
-        didSet{
-            updateTonnetz()
-            updateCoF()
-            UserDefaults.standard.set(String(diapason), forKey: "diapason")
-        }
-    }
-    @Published var stop: Int = 16 {
-        didSet{
-            updateTonnetz()
-            updateCoF()
-            UserDefaults.standard.set(String(stop), forKey: "stop")
-        }
-    }
-    @Published var temperedfifth: Double = 1.5 {
-        didSet{
-            updateCoF()
-            UserDefaults.standard.set(String(temperedfifth), forKey: "temperedfifth")
-        }
     }
     
     // A function to keep pitches within the ranges of the stop
@@ -136,20 +94,60 @@ class DroneManager: ObservableObject {
         
     }
     
-    //Set up a matrix of the proper size
+    private func updateTonnetz() {
+        for i in 0...8 {
+            for j in 0...4 {
+                let fifths = i-4
+                let thirds = j-2
+                let frequency = frequency(temper: Intervals.PFifth, fifths: fifths, thirds: thirds, diapason: diapason)
+                TonnetzManager[i][j].frequency = normfrequency(frequency: frequency, diapason: diapason, stop: stop)
+            }
+        }
+    }
+    private func updateCoF() {
+        for i in 0...23 {
+            let fifths = i - 12
+            let frequency = frequency(temper: temperedfifth, fifths: fifths, thirds: 0, diapason: diapason)
+            CoFManager[i].frequency = normfrequency(frequency: frequency, diapason: diapason, stop: stop)
+        }
+    }
+    
+    //When these variables are updated, update the Tonnetz and CoF, then save the value
+    var diapason: Int = 440 {
+        didSet{
+            updateTonnetz()
+            updateCoF()
+            UserDefaults.standard.set(String(diapason), forKey: "diapason")
+        }
+    }
+    var stop: Int = 16 {
+        didSet{
+            updateTonnetz()
+            updateCoF()
+            UserDefaults.standard.set(String(stop), forKey: "stop")
+        }
+    }
+    var temperedfifth: Double = 1.5 {
+        didSet{
+            updateCoF()
+            UserDefaults.standard.set(String(temperedfifth), forKey: "temperedfifth")
+        }
+    }
+    
+    //Sets up a matrix of the proper size
     private static func newTonnetzMatrix() -> [[Drone]] {
         var matrix: [[Drone]] = []
-
+        
         for i in 0...8 {
             matrix.append( [] )
-
+            
             for j in 0...4 {
                 let fifths = i-4
                 let thirds = j-2
                 matrix[i].append( Drone(frequency: 0, noteName: NamingHelper.noteName(fifths: fifths, thirds: thirds), pitchClass: NamingHelper.pitchClass(fifths: fifths, thirds: thirds)))
             }
         }
-
+        
         return matrix
     }
     private static func newCoFMatrix() -> [Drone] {
@@ -163,9 +161,9 @@ class DroneManager: ObservableObject {
         return matrix
     }
     
-    @Published var TonnetzManager: [[Drone]] = []
-    @Published var CoFManager: [Drone] = []
-
+    var TonnetzManager: [[Drone]] = []
+    var CoFManager: [Drone] = []
+    
     init() {
         //Creaate Tonnetz and CoF
         TonnetzManager = DroneManager.newTonnetzMatrix()

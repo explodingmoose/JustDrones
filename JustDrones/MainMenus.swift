@@ -14,11 +14,10 @@ struct SynthMenu: View {
     @ObservedObject var synth: SynthManager
     @Binding var isSynthMenuOpen: Bool
     
-    @State var isSubOscMenuOpen: Bool = false
-    @State var isFilterMenuOpen: Bool = false
-    @State var isLFOMenuOpen: Bool = false
-    @State var isFlangerMenuOpen: Bool = false
-    @State var isPhaserMenuOpen: Bool = false
+    @State private var isSubOscMenuOpen: Bool = false
+    @State private var isFilterMenuOpen: Bool = false
+    @State private var isLFOMenuOpen: Bool = false
+    @State private var isPhaserMenuOpen: Bool = false
     
     var body: some View {
         ZStack {
@@ -102,7 +101,6 @@ struct SynthMenu: View {
                             Button(action: {isSubOscMenuOpen.toggle()}) {Text("Sub Oscillator")}
                             Button(action: {isLFOMenuOpen.toggle()}) {Text("LFO")}
                             Button(action: {isFilterMenuOpen.toggle()}) {Text("Filter")}
-                            Button(action: {isFlangerMenuOpen.toggle()}) {Text("Flanger")}
                             Button(action: {isPhaserMenuOpen.toggle()}) {Text("Phaser")}
                         }
                     }
@@ -130,218 +128,13 @@ struct SynthMenu: View {
         }
     }
 }
-
-enum SubOctave: String, CaseIterable {
-    case Ottava = "\u{E51C}"
-    case Quindicecisma = "\u{E51D}"
-}
-
-struct SubOscMenu: View {
-    @Binding var isSubOscMenuOpen: Bool
-    @ObservedObject var synth: SynthManager
-    
-    var body: some View {
-        VStack{
-            HStack {
-                Text("Sub Oscillator")
-                Button(action: {synth.isSub.toggle()}) {
-                    Image(systemName: "power")
-                        .foregroundStyle(synth.isSub ? Color.accent : Color.gray)
-                }
-            }
-            Divider()
-                PickerPlus(SubOctave.allCases, selection: synth.subOctave) { item in
-                    Text(item.rawValue)
-                        .font(Font.custom("Bravura-Text", size: 24))
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 8)
-                        .frame(maxWidth: .infinity)
-                        .multilineTextAlignment(.center)
-                        .onTapGesture {
-                            synth.subOctave = item
-                        }
-                }
-                .padding()
-            //TODO: Add controls for subOsc balance
-            
-            Button(action: {isSubOscMenuOpen.toggle()}) {
-                Text("Close")
-                    .foregroundColor(.blue)
-            }
-        }
-        .padding()
-        .background()
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(radius: 4)
-    }
-}
-struct LFOMenu: View {
-    @Binding var isLFOMenuOpen: Bool
-    @ObservedObject var synth: SynthManager
-    
-    var body: some View {
-        VStack {
-            Text("LFO (Filter Cutoff)")
-            Divider()
-            HStack{
-                VStack{
-                    VStack {
-                        Text("Rate: \(String(format: "%.2f", synth.lfofrequency)) Hz")
-                        Slider(value: $synth.lfofrequency, in: 0...20)
-                    }
-                    VStack {
-                        Text("Depth: \(String(format: "%.2f", synth.lfoamplitude)) Hz")
-                        Slider(value: $synth.lfoamplitude, in: 0...2000)
-                    }
-                }
-                VStack {
-                    Text("Shape:")
-                    HStack {
-                        Image("Sine")
-                            .font(.system(size: 24))
-                            .foregroundColor(.accent)
-                            .onTapGesture{synth.lfoindex = 0}
-                        Image("Square")
-                            .font(.system(size: 24))
-                            .foregroundColor(.accent)
-                            .onTapGesture{synth.lfoindex = 1}
-                        Image("Sawtooth")
-                            .font(.system(size: 24))
-                            .foregroundColor(.accent)
-                            .onTapGesture{synth.lfoindex = 2}
-                        Image("Reverse Sawtooth")
-                            .font(.system(size: 24))
-                            .foregroundColor(.accent)
-                            .onTapGesture{synth.lfoindex = 3}
-                    }
-                    SmallKnob(value: $synth.lfoindex, range: 0...3)
-                        .frame(width: 50, height: 50)
-                    Text("Morph: \(String(format: "%.2f", synth.lfoindex/3))")
-                }
-            }
-            Button(action: {
-                isLFOMenuOpen.toggle()
-            }) {
-                Text("Close")
-                    .foregroundColor(.blue)
-            }
-            .padding()
-
-        }
-        .padding()
-        .background()
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(radius: 4)
-        .zIndex(3)
-    }
-}
-struct FilterMenu: View {
-    @Binding var isFilterMenuOpen: Bool
-    @ObservedObject var synth: SynthManager
-    
-    var body: some View {
-        VStack {
-            Text("Low Pass Filter (Moog Ladder)")
-            Divider()
-            HStack {
-                VStack {
-                    VStack {
-                        Text("Cutoff: \(Int(synth.cutoffFrequency * 2000)) Hz")
-                        Slider(value: $synth.cutoffFrequency, in: 0...1)
-                    }
-                    VStack{
-                        Text("Resonance: \(String(format: "%.2f", synth.resonance)) dB")
-                        Slider(value: $synth.resonance, in: 0...1)
-                    }
-                    Button(action: {
-                        isFilterMenuOpen.toggle()
-                    }) {
-                        Text("Close")
-                            .foregroundColor(.blue)
-                    }
-                    .padding()
-                    
-                }
-                .padding()
-                HStack {
-                    XYPad(x: $synth.cutoffFrequency, y: $synth.resonance)
-                        .backgroundColor(.primary)
-                        .foregroundColor(.accentColor)
-                        .indicatorSize(CGSize(width: 10, height: 10))
-                        .cornerRadius(10)
-                }
-                .padding()
-                
-            }.padding()
-        }
-        .padding()
-        .background()
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(radius: 4)
-        .zIndex(3)
-        
-        
-    }
-}
-
-struct PhaserMenu: View {
-    @Binding var isPhaserMenuOpen: Bool
-    @ObservedObject var synth: SynthManager
-    
-    var body: some View {
-        VStack{
-            Text("Phaser")
-            Divider()
-            HStack{
-                VStack{
-                    VStack{
-                        Text("Floor: \(String(format: "%.2f", synth.notchFloor))Hz")
-                        Slider(value: $synth.notchFloor, in: 20...5000)
-                    }
-                    VStack{
-                        Text("Ceiling: \(String(format: "%.2f", synth.notchCeiling))Hz")
-                        Slider(value: $synth.notchCeiling, in: synth.notchFloor...10000)
-                    }
-                    VStack{
-                        Text("Frequency: \(String(format: "%.2f", synth.notchFrequency))Hz")
-                        Slider(value: $synth.notchFrequency, in: 1.1...4.0)
-                    }
-                }
-                VStack{
-                    VStack{
-                        Text("LFO Rate: \(String(format: "%.2f", synth.lfoBPM))BPM")
-                        Slider(value: $synth.lfoBPM, in: 24...360)
-                    }
-                    HStack {
-                        ArcKnob("DPTH", value: $synth.phaserDepth, range: 0...100)
-                        ArcKnob("FDBK", value: $synth.phaserFeedback, range: 0...100)
-                    }
-                }
-            }
-            Button(action: {
-                isPhaserMenuOpen.toggle()
-            }) {
-                Text("Close")
-                    .foregroundColor(.blue)
-            }
-            .padding()
-        }
-        .padding()
-        .background()
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(radius: 4)
-        .zIndex(3)
-    }
-}
-
 struct ControlMenu: View {
-    let diapasons = [415, 422, 423, 432, 435, 436, 439, 440, 441, 442, 443, 444, 445, 446]
-    let stops = [2, 4, 8, 16, 32, 64]
+    private let diapasons = [415, 422, 423, 432, 435, 436, 439, 440, 441, 442, 443, 444, 445, 446]
+    private let stops = [2, 4, 8, 16, 32, 64]
     @ObservedObject var droneManager: DroneManager
     @ObservedObject var synth: SynthManager
     
     @Binding var isControlMenuOpen: Bool
-    
     @Binding var displayMode: DisplayMode
     @Binding var tuningMode: TuningMode
     @Binding var isPedal: Bool
@@ -438,8 +231,9 @@ struct ControlMenu: View {
 }
 struct RandomMenu: View {
     @Binding var isRandomMenuOn: Bool
-    @State var note = "Go"
-    let notes = ["A", "A\u{266F}/B\u{266D}", "B", "C", "C\u{266F}/D\u{266D}", "D", "D\u{266F}/E\u{266D}", "E", "F", "F\u{266F}/G\u{266D}", "G", "G\u{266F}/A\u{266D}"]
+    
+    @State private var note = "Go"
+    private let notes = ["A", "A\u{266F}/B\u{266D}", "B", "C", "C\u{266F}/D\u{266D}", "D", "D\u{266F}/E\u{266D}", "E", "F", "F\u{266F}/G\u{266D}", "G", "G\u{266F}/A\u{266D}"]
     
     var body: some View {
         VStack {

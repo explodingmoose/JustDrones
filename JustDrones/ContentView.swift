@@ -20,10 +20,10 @@ enum TuningMode: String {
 }
 
 struct ContentView: View {
-    //it would be good to organize the variables to be in the same order consistently
-    @State var theSynth = SynthManager()
-    @ObservedObject var theRecorder = RecordingManager()
-    @ObservedObject var theDroneManager = DroneManager()
+    //TODO: it would be good to organize the variables to be in the same order consistently
+    @State private var theSynth = SynthManager()
+    @State private var theRecorder = RecordingManager()
+    @State private var theDroneManager = DroneManager()
     
     @SceneStorage("ContentView.synthMenu") private var isSynthMenuOpen = false
     @SceneStorage("ContentView.controlMenu") private var isControlMenuOpen = false
@@ -44,11 +44,8 @@ struct ContentView: View {
                     case .CircleFifths:
                         CircleOfFifths(displayMode: displayMode, synth: theSynth, recorder: theRecorder, droneManager: theDroneManager)
                     case .Recorded:
-                        if #available(iOS 17.0, *) {
                             Recorded(diapason: 440, stop: 16, displayMode: displayMode, recorder: theRecorder, synth: theSynth, isPedal: isPedal)
                                 .onAppear() {theRecorder.recording = false}
-                        }
-                        else {Text("Recorded not available below iOS 17")}
                     }
                 }
                 //Buttons for menus
