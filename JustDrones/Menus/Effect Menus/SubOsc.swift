@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-enum SubOctave: String, CaseIterable {
-    case Ottava = "\u{E51C}"
-    case Quindicecisma = "\u{E51D}"
+enum SubOctave: String, CaseIterable, Codable {
+    case Ottava = "8vb"
+    case Quindicecisma = "15mb"
 }
 
 struct SubOscMenu: View {
@@ -26,17 +26,11 @@ struct SubOscMenu: View {
                 }
             }
             Divider()
-                PickerPlus(SubOctave.allCases, selection: synth.subOctave) { item in
-                    Text(item.rawValue)
-                        .font(Font.custom("Bravura-Text", size: 24))
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 8)
-                        .frame(maxWidth: .infinity)
-                        .multilineTextAlignment(.center)
-                        .onTapGesture {
-                            synth.subOctave = item
-                        }
-                }
+            Picker("Sub Octave", selection: $synth.subOctave) {
+                Text("8vb").tag(SubOctave.Ottava)
+                Text("15mb").tag(SubOctave.Quindicecisma)
+            }
+                .pickerStyle(.segmented)
                 .padding()
             //TODO: Add controls for subOsc balance
             
