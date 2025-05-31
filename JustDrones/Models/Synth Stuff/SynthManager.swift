@@ -192,14 +192,15 @@ struct Voice {
     }
     
     //Master
-    var masterGain: Float = 0 {
+    var compressorGain: Float = 0 {
         didSet {
-            compressor.masterGain = AUValue(masterGain)
+            compressor.masterGain = AUValue(compressorGain)
         }
     }
     
     init() {
-        
+        engine = AudioEngine()
+        queue = []
         //4 voice polyphony
         voiceMixer = Mixer(voice1.voiceMixer, voice2.voiceMixer, voice3.voiceMixer, voice4.voiceMixer)
         subMixer = Mixer(voice1.subOsc, voice2.subOsc, voice3.subOsc, voice4.subOsc)
@@ -243,13 +244,12 @@ struct Voice {
         
         
         voiceArray = [voice1, voice2, voice3, voice4]
-        queue = []
         
         filter.parameter1 = AUValue(cutoffFrequency * 2000)
         filter.parameter2 = AUValue(resonance)
         filter.parameter3 = AUValue(lfoamplitude)
         filter.parameter4 = AUValue(lfofrequency)
-        compressor.masterGain = AUValue(masterGain)
+        compressor.masterGain = AUValue(compressorGain)
         
         voiceMixer.addInput(subMixer)
         
@@ -348,6 +348,5 @@ struct Voice {
     private func stopAll() {
         voiceArray.forEach { stopVoice($0) }
     }
-    
-    
+
 }

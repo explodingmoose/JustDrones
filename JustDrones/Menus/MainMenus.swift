@@ -11,7 +11,7 @@ import AudioKitUI
 import Controls
 
 struct SynthMenu: View {
-    @ObservedObject var synth: SynthManager
+    @Bindable var synth: SynthManager
     @Binding var isSynthMenuOpen: Bool
     
     @State private var isSubOscMenuOpen: Bool = false
@@ -19,99 +19,115 @@ struct SynthMenu: View {
     @State private var isLFOMenuOpen: Bool = false
     @State private var isPhaserMenuOpen: Bool = false
     
+    var O1Controls: some View {
+        VStack {
+            Text("Osc 1:")
+            HStack {
+                Image("Sine")
+                    .iconStyle()
+                    .onTapGesture{O1Sine()}
+                Image("Triangle")
+                    .iconStyle()
+                    .onTapGesture{O1Triangle()}
+                Image("Square")
+                    .iconStyle()
+                    .onTapGesture{O1Square()}
+                Image("Sawtooth")
+                    .iconStyle()
+                    .onTapGesture{O1Saw()}
+            }
+            SmallKnob(value: $synth.O1Morph, range: 0...3)
+            Text("Morph: \(String(format: "%.2f", synth.O1Morph/3))")
+        }
+    }
+    var O2Controls: some View {
+        VStack {
+            Text("Osc 2:")
+            HStack {
+                Image("Sine")
+                    .iconStyle()
+                    .onTapGesture{O2Sine()}
+                Image("Triangle")
+                    .iconStyle()
+                    .onTapGesture{O2Triangle()}
+                Image("Square")
+                    .iconStyle()
+                    .onTapGesture{O2Square()}
+                Image("Sawtooth")
+                    .iconStyle()
+                    .onTapGesture{O2Saw()}
+            }
+            .foregroundStyle(.accent)
+            SmallKnob(value: $synth.O2Morph, range: 0...3)
+            Text("Morph: \(String(format: "%.2f", synth.O2Morph/3))")
+        }
+    }
+    var waveGraph: some View {
+        RawOutputView(synth.voiceMixer, strokeColor: .accent, scaleFactor: 0.5)
+            .border(.accent, width: 0.5)
+            .clipShape(RoundedRectangle(cornerRadius: 2))
+    }
+    var effectMenus: some View {
+        VStack {
+            Button(action: {isSubOscMenuOpen.toggle()}) {Text("Sub Oscillator")}
+            Button(action: {isLFOMenuOpen.toggle()}) {Text("LFO")}
+            Button(action: {isFilterMenuOpen.toggle()}) {Text("Filter")}
+            Button(action: {isPhaserMenuOpen.toggle()}) {Text("Phaser")}
+        }
+    }
+    
+    private func O1Sine() {
+        synth.O1Morph = 0
+    }
+    private func O1Triangle() {
+        synth.O1Morph = 1
+    }
+    private func O1Square() {
+        synth.O1Morph = 2
+    }
+    private func O1Saw() {
+        synth.O1Morph = 3
+    }
+    private func O2Sine() {
+        synth.O2Morph = 0
+    }
+    private func O2Triangle() {
+        synth.O2Morph = 1
+    }
+    private func O2Square() {
+        synth.O2Morph = 2
+    }
+    private func O2Saw() {
+        synth.O2Morph = 3
+    }
+    
     var body: some View {
         ZStack {
             VStack {
                 HStack(spacing: 50) {
+                    O1Controls
                     VStack{
-                        //Presets
-                        Text("Osc 1:")
-                        HStack {
-                            Image("Sine")
-                                .font(.system(size: 24))
-                                .foregroundColor(.accent)
-                                .onTapGesture{synth.O1Morph = 0}
-                            Image("Triangle")
-                                .font(.system(size: 24))
-                                .foregroundColor(.accent)
-                                .onTapGesture{synth.O1Morph = 1}
-                            Image("Square")
-                                .font(.system(size: 24))
-                                .foregroundColor(.accent)
-                                .onTapGesture{synth.O1Morph = 2}
-                            Image("Sawtooth")
-                                .font(.system(size: 24))
-                                .foregroundColor(.accent)
-                                .onTapGesture{synth.O1Morph = 3}
-                        }
-                        SmallKnob(value: $synth.O1Morph, range: 0...3)
-                            .frame(width: 50, height: 50)
-                        Text("Morph: \(String(format: "%.2f", synth.O1Morph/3))")
-                    }
-                    VStack{
+                        Text("Oscillator Balance: \(String(format: "%.2f", synth.shapebalance))")
                         Slider(value: $synth.shapebalance, in: 0...1, step: 0.01)
-                            .frame(width: 200)
-                        RawOutputView(synth.voiceMixer, strokeColor: .accent, scaleFactor: 0.5)
-                            .frame(width: 200, height: 100)
-                            .border(.accent, width: 0.5)
-                            .clipShape(RoundedRectangle(cornerRadius: 2))
+                        
                     }
-                    VStack{
-                        //Presets
-                        Text("Osc 2:")
-                        HStack {
-                            Image("Sine")
-                                .font(.system(size: 24))
-                                .foregroundColor(.accent)
-                                .onTapGesture{synth.O2Morph = 0}
-                            Image("Triangle")
-                                .font(.system(size: 24))
-                                .foregroundColor(.accent)
-                                .onTapGesture{synth.O2Morph = 1}
-                            Image("Square")
-                                .font(.system(size: 24))
-                                .foregroundColor(.accent)
-                                .onTapGesture{synth.O2Morph = 2}
-                            Image("Sawtooth")
-                                .font(.system(size: 24))
-                                .foregroundColor(.accent)
-                                .onTapGesture{synth.O2Morph = 3}
-                        }
-                        SmallKnob(value: $synth.O2Morph, range: 0...3)
-                            .frame(width: 50, height: 50)
-                        Text("Morph: \(String(format: "%.2f", synth.O2Morph/3))")
-                    }
+                    O2Controls
                 }
                 
                 Divider()
                 //Master knob
-                VStack(alignment: .subCentre) {
-                    HStack {
-                        VStack {
-                            Text("Master:")
-                            SmallKnob(value: $synth.masterGain, range: -12...6)
-                                .frame(height: 50)
-                            Text("\(String(format: "%.2f", synth.masterGain)) dB")
-                        }
-                        Spacer().frame(width: 50)
-                        Divider ()
-                            .alignmentGuide(.subCentre) { d in d.width/2 }
-                        Spacer().frame(width: 50)
-                        VStack {
-                            Button(action: {isSubOscMenuOpen.toggle()}) {Text("Sub Oscillator")}
-                            Button(action: {isLFOMenuOpen.toggle()}) {Text("LFO")}
-                            Button(action: {isFilterMenuOpen.toggle()}) {Text("Filter")}
-                            Button(action: {isPhaserMenuOpen.toggle()}) {Text("Phaser")}
-                        }
+                HStack {
+                    VStack {
+                        Text("Master Gain: \(String(format: "%.2f", synth.compressorGain)) dB")
+                        Slider(value: $synth.compressorGain, in: -12...6)
+                        waveGraph
                     }
-                    GeometryReader { geometry in
-                        EmptyView()
-                    }
-                    .alignmentGuide(.subCentre) { d in d.width/2 }
+                    Divider ()
+                    effectMenus
                 }
                 //Close menu button
                 Button(action: {isSynthMenuOpen.toggle()}) {Text("Close")
-                        .foregroundColor(.blue)
+                        .foregroundStyle(.blue)
                 }
                 .padding(5)
             }
@@ -131,8 +147,8 @@ struct SynthMenu: View {
 struct ControlMenu: View {
     private let diapasons = [415, 422, 423, 432, 435, 436, 439, 440, 441, 442, 443, 444, 445, 446]
     private let stops = [2, 4, 8, 16, 32, 64]
-    @ObservedObject var droneManager: DroneManager
-    @ObservedObject var synth: SynthManager
+    @Bindable var droneManager: DroneManager
+    var synth: SynthManager
     
     @Binding var isControlMenuOpen: Bool
     @Binding var displayMode: DisplayMode
@@ -146,7 +162,6 @@ struct ControlMenu: View {
                 let midy = geometry.size.height / 2.0
                 VStack {
                     
-                    if #available(iOS 17.0, *) {
                         Picker("Tuning Mode", selection: $tuningMode) {
                             Text("Circle of Fifths").tag(TuningMode.CircleFifths)
                             Text("Tonnetz").tag(TuningMode.Tonnetz)
@@ -157,9 +172,7 @@ struct ControlMenu: View {
                             synth.clearQueue()
                         }
                         .padding()
-                    } else {
-                        Text("Please update to iOS 17.0 or higher!")
-                    }
+                    
                     
                     VStack {
                         HStack(spacing: 10) {
@@ -204,9 +217,8 @@ struct ControlMenu: View {
                             synth.clearQueue()
                         }) {
                             Text("Stop All Drones!")
-                                .foregroundColor(.accentColor)
+                                .foregroundStyle(Color.accentColor)
                         }
-                        .padding()
                         
                     }
                     
@@ -214,7 +226,7 @@ struct ControlMenu: View {
                         isControlMenuOpen.toggle()
                     }) {
                         Text("Close")
-                            .foregroundColor(.blue)
+                            .foregroundStyle(.blue)
                     }
                     .padding()
                 }
@@ -250,7 +262,7 @@ struct RandomMenu: View {
                 isRandomMenuOn.toggle()
             }) {
                 Text("Close")
-                    .foregroundColor(.blue)
+                    .foregroundStyle(.blue)
             }
             .padding()
         }

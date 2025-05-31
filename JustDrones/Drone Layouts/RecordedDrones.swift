@@ -17,7 +17,9 @@ struct Recorded: View {
     let synth: SynthManager
     var isPedal: Bool
     
-    @State private var name: String = ""
+    @State private var isSavePopUpOpen = false
+    @State private var isSavedListsOpen = false
+    @State private var NavigationState = NavigationSplitViewColumn.detail
     
     private func load(key: String) -> () -> () {
         return {
@@ -32,26 +34,21 @@ struct Recorded: View {
         }
     }
     
-    @State private var isSavePopUpOpen = false
-    @State private var isSavedListsOpen = false
-    
-    @State private var NavigationState = NavigationSplitViewColumn.detail
-    
     var body: some View {
         
         GeometryReader {geometry in
             let midX = geometry.size.width / 2.0
             let midY = geometry.size.height / 2.0
             
+            //TODO: Is this Geometry Reader Necessary?
+            
             if isSavePopUpOpen {
                 SavePopUp(isSavePopUpOpen: $isSavePopUpOpen, recorder: recorder)
                     .position(x: midX, y: midY)
             }
-            
             VStack{
                 NavigationSplitView(preferredCompactColumn: $NavigationState) {
                     List {
-                        
                         HStack{
                             Text("New")
                             Spacer()
@@ -78,32 +75,22 @@ struct Recorded: View {
                     .toolbar {
                         EditButton()
                     }
-                    
                 } detail: {
                     if recorder.recorded.count == 0 {
                         Text("Nothing here yet")
                     } else {
+                        //Recorded drone list
                         ScrollView(.horizontal, showsIndicators: false) {
-                            GeometryReader {geo in
                                 LazyHStack(spacing: 0) {
                                     ForEach(recorder.recorded) {drone in
                                         DroneButton(drone: drone, displayMode: displayMode, recorder: recorder, synth:synth, droneRadius: 27.0)
                                     }
                                 }
                                 .containerRelativeFrame(.horizontal, alignment: .center)
-                            }
                         }
                         .frame(height: 54)
                         
-                        
-                        if isPedal {
-                            PedalDrone(synth: synth, recorder: recorder, displayMode: displayMode)
-                        }
-                    }
-                    
-                    
-                    
-                    if recorder.recorded.count > 0 {
+                        //Clear and Save Buttons
                         HStack{
                             Button(action: {
                                 recorder.clear()
@@ -116,6 +103,12 @@ struct Recorded: View {
                                 Text("Save")
                             }
                         }
+                        
+                        if isPedal {
+                            VStack {
+                                Text("Drone for Pedal Use:")
+                                PedalDrone(synth: synth, recorder: recorder, displayMode: displayMode)
+                            }}
                     }
                 }
             }
@@ -210,6 +203,7 @@ struct PedalDrone: View {
     
     //mirrors the usual synth.queue, to avoid publishing changes as same time as view updates
     @State private var tempQueue: [Drone] = []
+    
     private func turnOn() {
         tempQueue.append(recorder.recorded[index])
     }
@@ -242,7 +236,6 @@ struct PedalDrone: View {
             .focused($isFocused)
             .focusEffectDisabled()
             .onKeyPress(keys: [KeyEquivalent.downArrow, KeyEquivalent.rightArrow], action: { press in
-                print("i pressed down")
                 if index >= 0 && index < recorder.recorded.count - 1 {
                     forward()
                 } else if index == recorder.recorded.count - 1 {
@@ -252,7 +245,6 @@ struct PedalDrone: View {
                      
             })
             .onKeyPress(keys: [KeyEquivalent.upArrow, KeyEquivalent.leftArrow], action: { press in
-                print("i pressed up")
                 if index > 0 && index < recorder.recorded.count {
                     backward()
                 } else if index == 0 {
@@ -261,11 +253,9 @@ struct PedalDrone: View {
                 return .handled
             })
             .onChange(of: tempQueue) {
-                print("changing the queue")
                 synth.queue = tempQueue
             }
             .onAppear() {
-                print(isTapped)
                 isFocused = true
                 reset()
             }

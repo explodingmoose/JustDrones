@@ -80,14 +80,14 @@ class Drone: Identifiable, Equatable, Codable {
         let upperC = Double(diapason) * 6.0/5.0
         
         var baseoctave = frequency
-
+        
         while baseoctave > upperC {
             baseoctave /= 2
         }
         while baseoctave < lowerC {
             baseoctave *= 2
         }
-   
+        
         let octaves = -log2(Double(stop)) + 3
         let power = pow(2, abs(octaves))
         if octaves < 0 {return baseoctave / power} else {return baseoctave * power}
