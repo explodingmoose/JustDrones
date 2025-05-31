@@ -31,20 +31,16 @@ struct LFOMenu: View {
                     Text("Shape:")
                     HStack {
                         Image("Sine")
-                            .font(.system(size: 24))
-                            .foregroundColor(.accent)
+                            .iconStyle()
                             .onTapGesture{synth.lfoindex = 0}
                         Image("Square")
-                            .font(.system(size: 24))
-                            .foregroundColor(.accent)
+                            .iconStyle()
                             .onTapGesture{synth.lfoindex = 1}
                         Image("Sawtooth")
-                            .font(.system(size: 24))
-                            .foregroundColor(.accent)
+                            .iconStyle()
                             .onTapGesture{synth.lfoindex = 2}
                         Image("Reverse Sawtooth")
-                            .font(.system(size: 24))
-                            .foregroundColor(.accent)
+                            .iconStyle()
                             .onTapGesture{synth.lfoindex = 3}
                     }
                     SmallKnob(value: $synth.lfoindex, range: 0...3)

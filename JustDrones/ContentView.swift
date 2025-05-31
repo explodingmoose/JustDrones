@@ -54,24 +54,21 @@ struct ContentView: View {
                         isControlMenuOpen.toggle()
                     }) {
                         Image(systemName: "gear")
-                            .font(.system(size: 24))
-                            .foregroundColor(.blue)
+                            .iconStyle()
                     }
                     
                     Button(action: {
                         isSynthMenuOpen.toggle()
                     }) {
                         Image(systemName: "slider.horizontal.3")
-                            .font(.system(size: 24))
-                            .foregroundColor(.blue)
+                            .iconStyle()
                     }
                     
                     Button(action: {
                         isRandomMenuOn.toggle()
                     }) {
                         Image(systemName: "dice")
-                            .font(.system(size: 24))
-                            .foregroundColor(.blue)
+                            .iconStyle()
                     }
                     
                     Button(action: {
@@ -79,7 +76,7 @@ struct ContentView: View {
                     }) {
                             Image(systemName: "stop.circle")
                                 .font(.system(size: 24))
-                                .foregroundStyle(theRecorder.recording ? .red : .blue)
+                                .foregroundStyle(theRecorder.recording ? .red : Color.accentColor)
                             
                     }
                 }

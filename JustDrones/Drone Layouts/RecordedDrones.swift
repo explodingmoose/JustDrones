@@ -225,7 +225,6 @@ struct PedalDrone: View {
     }
     
     var body: some View {
-        if #available(iOS 17.0, *) {
             let circleColor = isTapped ? Color.accentColor : Color.gray
             Button(action: {
                 isTapped.toggle()
@@ -271,6 +270,6 @@ struct PedalDrone: View {
                 isFocused = true
                 reset()
             }
-        }
+        
     }
 }
