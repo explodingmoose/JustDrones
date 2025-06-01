@@ -30,8 +30,6 @@ struct Voice {
     }
 }
 
-
-
 //The Synth Manager behaves as the Conductor
 @Observable class SynthManager {
     
@@ -51,8 +49,21 @@ struct Voice {
     
     
     //to allow bypass
-    var isPhaser: Bool = true //phaser effect
-    var isFilter: Bool = true //Moog Ladder filter (low pass)
+    var isPhaser: Bool = false {
+        didSet {
+            updateQueue()
+        }
+    }
+    var isFilter: Bool = true {
+        didSet {
+            updateQueue()
+        }
+    }
+    var isLFO: Bool = true {
+        didSet {
+           //code
+        }
+    }
     var isSub: Bool = true {
         didSet {
             if isSub {voiceMixer.addInput(subMixer)} else {voiceMixer.removeInput(subMixer)}
@@ -277,7 +288,7 @@ struct Voice {
         
         //recall previous phaser settings
         if let decoded = UserDefaults.standard.string(forKey: "notchFloor") {
-            phaser.notchMinimumFrequency = AUValue(Float(decoded) ?? 100.0)
+            phaser.notchMinimumFrequency = AUValue(Float(decoded) ?? 1000.0)
         }
         if let decoded = UserDefaults.standard.string(forKey: "notchCeiling") {
             phaser.notchMaximumFrequency = AUValue(Float(decoded) ?? 5000.0)
@@ -318,8 +329,8 @@ struct Voice {
                 voiceArray[i].subOsc.frequency = frequency / subOctaveRatio()
                 startVoice(voiceArray[i])
             }
-            filter.start()
-            phaser.start()
+            if isFilter {filter.start()}
+            if isPhaser {phaser.start()}
         }
         
     }

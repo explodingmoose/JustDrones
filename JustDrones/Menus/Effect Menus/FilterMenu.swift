@@ -14,7 +14,7 @@ struct FilterMenu: View {
     
     var body: some View {
         VStack {
-            Text("Low Pass Filter (Moog Ladder)")
+            BypassButton(effect: $synth.isFilter, label: "Low Pass Filter (Moog Ladder)")
             Divider()
             HStack {
                 VStack {

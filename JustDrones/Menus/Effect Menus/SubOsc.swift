@@ -18,13 +18,9 @@ struct SubOscMenu: View {
     
     var body: some View {
         VStack{
-            HStack {
-                Text("Sub Oscillator")
-                Button(action: {synth.isSub.toggle()}) {
-                    Image(systemName: "power")
-                        .foregroundStyle(synth.isSub ? Color.accent : Color.gray)
-                }
-            }
+            
+            BypassButton(effect: $synth.isSub, label: "Sub Oscillator")
+            
             Divider()
             Picker("Sub Octave", selection: $synth.subOctave) {
                 Text("8vb").tag(SubOctave.Ottava)

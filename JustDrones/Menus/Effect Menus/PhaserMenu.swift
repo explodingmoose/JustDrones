@@ -14,7 +14,7 @@ struct PhaserMenu: View {
     
     var body: some View {
         VStack{
-            Text("Phaser")
+            BypassButton(effect: $synth.isPhaser, label: "Phaser")
             Divider()
             HStack{
                 VStack{

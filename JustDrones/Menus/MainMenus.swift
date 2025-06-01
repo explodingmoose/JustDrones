@@ -76,6 +76,19 @@ struct SynthMenu: View {
         }
     }
     
+    var subMenu: some View {
+        SubOscMenu(isSubOscMenuOpen: $isSubOscMenuOpen, synth: synth)
+    }
+    var filterMenu: some View {
+        FilterMenu(isFilterMenuOpen: $isFilterMenuOpen, synth: synth)
+    }
+    var lfoMenu: some View {
+        LFOMenu(isLFOMenuOpen: $isLFOMenuOpen, synth: synth)
+    }
+    var phaserMenu: some View {
+        PhaserMenu(isPhaserMenuOpen: $isPhaserMenuOpen, synth: synth)
+    }
+    
     private func O1Sine() {
         synth.O1Morph = 0
     }
@@ -100,6 +113,7 @@ struct SynthMenu: View {
     private func O2Saw() {
         synth.O2Morph = 3
     }
+
     
     var body: some View {
         ZStack {
@@ -137,10 +151,10 @@ struct SynthMenu: View {
             .shadow(radius: 4)
             
             .padding()
-            if isSubOscMenuOpen {SubOscMenu(isSubOscMenuOpen: $isSubOscMenuOpen, synth: synth)}
-            if isFilterMenuOpen {FilterMenu(isFilterMenuOpen: $isFilterMenuOpen, synth: synth)}
-            if isLFOMenuOpen {LFOMenu(isLFOMenuOpen: $isLFOMenuOpen, synth: synth)}
-            if isPhaserMenuOpen {PhaserMenu(isPhaserMenuOpen: $isPhaserMenuOpen, synth: synth)}
+                if isSubOscMenuOpen {subMenu}
+                if isFilterMenuOpen {filterMenu}
+                if isLFOMenuOpen {lfoMenu}
+                if isPhaserMenuOpen {phaserMenu}
         }
     }
 }

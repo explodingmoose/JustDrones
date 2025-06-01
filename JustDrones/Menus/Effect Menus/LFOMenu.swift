@@ -14,7 +14,7 @@ struct LFOMenu: View {
     
     var body: some View {
         VStack {
-            Text("LFO (Filter Cutoff)")
+            BypassButton(effect: $synth.isLFO, label: "LFO (Filter Cutoff)")
             Divider()
             HStack{
                 VStack{
