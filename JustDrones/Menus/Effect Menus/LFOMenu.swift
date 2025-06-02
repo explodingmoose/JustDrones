@@ -19,12 +19,12 @@ struct LFOMenu: View {
             HStack{
                 VStack{
                     VStack {
-                        Text("Rate: \(String(format: "%.2f", synth.lfofrequency)) Hz")
-                        Slider(value: $synth.lfofrequency, in: 0...20)
+                        Text("Rate: \(String(format: "%.2f", synth.lfoFrequency)) Hz")
+                        Slider(value: $synth.lfoFrequency, in: 0...20)
                     }
                     VStack {
-                        Text("Depth: \(String(format: "%.2f", synth.lfoamplitude)) Hz")
-                        Slider(value: $synth.lfoamplitude, in: 0...2000)
+                        Text("Depth: \(String(format: "%.2f", synth.lfoDepth)) Hz")
+                        Slider(value: $synth.lfoDepth, in: 0...2000)
                     }
                 }
                 VStack {
@@ -32,20 +32,20 @@ struct LFOMenu: View {
                     HStack {
                         Image("Sine")
                             .iconStyle()
-                            .onTapGesture{synth.lfoindex = 0}
+                            .onTapGesture{synth.lfoIndex = 0}
                         Image("Square")
                             .iconStyle()
-                            .onTapGesture{synth.lfoindex = 1}
+                            .onTapGesture{synth.lfoIndex = 1}
                         Image("Sawtooth")
                             .iconStyle()
-                            .onTapGesture{synth.lfoindex = 2}
+                            .onTapGesture{synth.lfoIndex = 2}
                         Image("Reverse Sawtooth")
                             .iconStyle()
-                            .onTapGesture{synth.lfoindex = 3}
+                            .onTapGesture{synth.lfoIndex = 3}
                     }
-                    SmallKnob(value: $synth.lfoindex, range: 0...3)
+                    SmallKnob(value: $synth.lfoIndex, range: 0...3)
                         .frame(width: 50, height: 50)
-                    Text("Morph: \(String(format: "%.2f", synth.lfoindex/3))")
+                    Text("Morph: \(String(format: "%.2f", synth.lfoIndex/3))")
                 }
             }
             Button(action: {

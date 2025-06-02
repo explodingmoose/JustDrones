@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-enum SubOctave: String, CaseIterable, Codable {
-    case Ottava = "8vb"
-    case Quindicecisma = "15mb"
+enum SubOctave: Float, Codable {
+    case Ottava = 0.5
+    case Quindicecisma = 0.25
 }
 
 struct SubOscMenu: View {

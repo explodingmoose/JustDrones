@@ -117,20 +117,20 @@ class Drone: Identifiable, Equatable, Codable {
         didSet{
             updateTonnetz()
             updateCoF()
-            UserDefaults.standard.set(String(diapason), forKey: "diapason")
+            UserDefaults.standard.set(diapason, forKey: "drones.diapason")
         }
     }
     var stop: Int = 16 {
         didSet{
             updateTonnetz()
             updateCoF()
-            UserDefaults.standard.set(String(stop), forKey: "stop")
+            UserDefaults.standard.set(stop, forKey: "drones.stop")
         }
     }
     var temperedfifth: Double = 1.5 {
         didSet{
             updateCoF()
-            UserDefaults.standard.set(String(temperedfifth), forKey: "temperedfifth")
+            UserDefaults.standard.set(temperedfifth, forKey: "drones.temperedfifth")
         }
     }
     
@@ -170,15 +170,9 @@ class Drone: Identifiable, Equatable, Codable {
         CoFManager = DroneManager.newCoFMatrix()
         
         //Recall stored parameters
-        if let decoded = UserDefaults.standard.string(forKey: "diapason") {
-            diapason = Int(decoded) ?? 440
-        }
-        if let decoded = UserDefaults.standard.string(forKey: "stop") {
-            stop = Int(decoded) ?? 16
-        }
-        if let decoded = UserDefaults.standard.string(forKey: "temperedfifth") {
-            temperedfifth = Double(decoded) ?? 1.5
-        }
+        diapason = UserDefaults.standard.integer(forKey: "drones.diapason")
+        stop = UserDefaults.standard.integer(forKey: "drones.stop")
+        temperedfifth = UserDefaults.standard.double(forKey: "drones.temperedfifth")
         
         //Tune Tonnetz
         for i in 0...8 {

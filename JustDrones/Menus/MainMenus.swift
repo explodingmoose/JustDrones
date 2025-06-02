@@ -121,8 +121,8 @@ struct SynthMenu: View {
                 HStack(spacing: 50) {
                     O1Controls
                     VStack{
-                        Text("Oscillator Balance: \(String(format: "%.2f", synth.shapebalance))")
-                        Slider(value: $synth.shapebalance, in: 0...1, step: 0.01)
+                        Text("Oscillator Balance: \(String(format: "%.2f", synth.shapeBalance))")
+                        Slider(value: $synth.shapeBalance, in: 0...1, step: 0.01)
                         
                     }
                     O2Controls

@@ -32,7 +32,6 @@ struct ContentView: View {
     @SceneStorage("ContentView.displayMode") private var displayMode = DisplayMode.noteName
     @SceneStorage("ContentView.tuningMode") private var tuningMode = TuningMode.Tonnetz
     
-    
     var body: some View {
         ZStack{
             VStack {
