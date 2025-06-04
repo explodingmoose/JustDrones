@@ -8,10 +8,11 @@
 import SwiftUI
 
 
-enum DisplayMode: String {
+enum DisplayMode: String, CaseIterable, Identifiable {
     case pitchClass = "Pitch Class"
     case frequency = "Frequency"
     case noteName = "Note Name"
+    var id: Self { self }
 }
 enum TuningMode: String, CaseIterable, Identifiable {
     case CircleFifths = "Circle of Fifths"

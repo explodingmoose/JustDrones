@@ -26,9 +26,9 @@ struct ControlMenu: View {
                 VStack {
                     
                         Picker("Tuning Mode", selection: $tuningMode) {
-                            Text("Circle of Fifths").tag(TuningMode.CircleFifths)
-                            Text("Tonnetz").tag(TuningMode.Tonnetz)
-                            Text("Recorded").tag(TuningMode.Recorded)
+                            ForEach(TuningMode.allCases) { tuning in
+                                Text(tuning.rawValue)
+                            }
                         }
                         .pickerStyle(.segmented)
                         .onChange(of: tuningMode) {
@@ -41,9 +41,9 @@ struct ControlMenu: View {
                         HStack(spacing: 10) {
                             Text("Display Mode:")
                             Picker("Display Mode", selection: $displayMode) {
-                                Text("Pitch Class").tag(DisplayMode.pitchClass)
-                                Text("Frequency").tag(DisplayMode.frequency)
-                                Text("Note Name").tag(DisplayMode.noteName)
+                                ForEach(DisplayMode.allCases) { display in
+                                    Text(display.rawValue)
+                                }
                             }
                             .pickerStyle(.menu)
                         }
