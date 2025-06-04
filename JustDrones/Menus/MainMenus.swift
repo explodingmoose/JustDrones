@@ -167,7 +167,7 @@ struct ControlMenu: View {
     @Binding var isControlMenuOpen: Bool
     @Binding var displayMode: DisplayMode
     @Binding var tuningMode: TuningMode
-    @Binding var isPedal: Bool
+    @Binding var namingMode: NamingMode
     
     var body: some View {
         VStack (alignment: .center){

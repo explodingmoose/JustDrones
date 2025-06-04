@@ -15,7 +15,6 @@ struct Recorded: View {
     let displayMode: DisplayMode
     var recorder: RecordingManager
     let synth: SynthManager
-    var isPedal: Bool
     
     @State private var isSavePopUpOpen = false
     @State private var isSavedListsOpen = false
@@ -103,12 +102,10 @@ struct Recorded: View {
                                 Text("Save")
                             }
                         }
-                        
-                        if isPedal {
-                            VStack {
-                                Text("Drone for Pedal Use:")
-                                PedalDrone(synth: synth, recorder: recorder, displayMode: displayMode)
-                            }}
+                        VStack {
+                            Text("Drone for Pedal Use:")
+                            PedalDrone(synth: synth, recorder: recorder, displayMode: displayMode)
+                        }
                     }
                 }
             }

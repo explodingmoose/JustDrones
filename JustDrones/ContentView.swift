@@ -35,7 +35,6 @@ struct ContentView: View {
     @SceneStorage("ContentView.synthMenu") private var isSynthMenuOpen = false
     @SceneStorage("ContentView.controlMenu") private var isControlMenuOpen = false
     @SceneStorage("ContentView.randomMenu") private var isRandomMenuOn = false
-    @SceneStorage("Recorded.isPedal") private var isPedal = true
     @SceneStorage("ContentView.displayMode") private var displayMode = DisplayMode.noteName
     @SceneStorage("ContentView.tuningMode") private var tuningMode = TuningMode.Tonnetz
     
@@ -47,7 +46,7 @@ struct ContentView: View {
             case .CircleFifths:
                 CircleOfFifths(displayMode: displayMode, synth: theSynth, recorder: theRecorder, droneManager: theDroneManager)
             case .Recorded:
-                Recorded(diapason: 440, stop: 16, displayMode: displayMode, recorder: theRecorder, synth: theSynth, isPedal: isPedal)
+                Recorded(diapason: 440, stop: 16, displayMode: displayMode, recorder: theRecorder, synth: theSynth)
                     .onAppear() {theRecorder.recording = false}
             }
         }
@@ -88,7 +87,7 @@ struct ContentView: View {
     var menu: some View {
         ZStack{
             if isSynthMenuOpen {SynthMenu(synth: theSynth, isSynthMenuOpen: $isSynthMenuOpen)}
-            if isControlMenuOpen {ControlMenu(droneManager: theDroneManager, synth: theSynth, isControlMenuOpen: $isControlMenuOpen, displayMode: $displayMode, tuningMode: $tuningMode, isPedal: $isPedal)}
+            if isControlMenuOpen {ControlMenu(droneManager: theDroneManager, synth: theSynth, isControlMenuOpen: $isControlMenuOpen, displayMode: $displayMode, tuningMode: $tuningMode, namingMode: $namingMode)}
             if isRandomMenuOn {RandomMenu(isRandomMenuOn: $isRandomMenuOn)}
         }
     }
