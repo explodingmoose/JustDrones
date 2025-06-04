@@ -114,3 +114,10 @@ struct ContentView: View {
     }
 }
 
+extension Image {
+    func iconStyle() -> some View {
+        self
+            .font(.system(size: 24))
+            .foregroundColor(.accent)
+    }
+}

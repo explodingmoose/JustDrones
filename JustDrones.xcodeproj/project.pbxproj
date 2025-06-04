@@ -8,14 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		E419AFEE2DEB4E5100D6F274 /* ContentViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E419AFED2DEB4E4400D6F274 /* ContentViewPreview.swift */; };
-		E428CD3A2DEB6F0900D8B2A1 /* UIStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = E428CD392DEB6F0400D8B2A1 /* UIStuff.swift */; };
 		E436CD142A9AA3580042B9C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD132A9AA3580042B9C0 /* ContentView.swift */; };
 		E436CD162A9AA35A0042B9C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E436CD152A9AA35A0042B9C0 /* Assets.xcassets */; };
 		E436CD192A9AA35A0042B9C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E436CD182A9AA35A0042B9C0 /* Preview Assets.xcassets */; };
 		E436CD232A9AA35B0042B9C0 /* JustDronesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD222A9AA35B0042B9C0 /* JustDronesTests.swift */; };
 		E436CD2D2A9AA35B0042B9C0 /* JustDronesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD2C2A9AA35B0042B9C0 /* JustDronesUITests.swift */; };
 		E436CD2F2A9AA35B0042B9C0 /* JustDronesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD2E2A9AA35B0042B9C0 /* JustDronesUITestsLaunchTests.swift */; };
-		E436CD422A9AA4180042B9C0 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD412A9AA4180042B9C0 /* Buttons.swift */; };
 		E436CD552A9AA6960042B9C0 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = E436CD542A9AA6960042B9C0 /* AudioKit */; };
 		E436CD572A9AA69D0042B9C0 /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = E436CD562A9AA69D0042B9C0 /* SoundpipeAudioKit */; };
 		E43D7E782C4EAA580054D7B4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43D7E772C4EAA570054D7B4 /* Launch Screen.storyboard */; };
@@ -48,7 +46,6 @@
 
 /* Begin PBXFileReference section */
 		E419AFED2DEB4E4400D6F274 /* ContentViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewPreview.swift; sourceTree = "<group>"; };
-		E428CD392DEB6F0400D8B2A1 /* UIStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStuff.swift; sourceTree = "<group>"; };
 		E436CD0E2A9AA3580042B9C0 /* JustDrones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustDrones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E436CD132A9AA3580042B9C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E436CD152A9AA35A0042B9C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,7 +55,6 @@
 		E436CD282A9AA35B0042B9C0 /* JustDronesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustDronesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E436CD2C2A9AA35B0042B9C0 /* JustDronesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustDronesUITests.swift; sourceTree = "<group>"; };
 		E436CD2E2A9AA35B0042B9C0 /* JustDronesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustDronesUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E436CD412A9AA4180042B9C0 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		E436CD582A9AAA970042B9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E43D7E772C4EAA570054D7B4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E48372ED2AA666C6008D33ED /* BravuraText.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BravuraText.otf; sourceTree = "<group>"; };
@@ -132,11 +128,9 @@
 				E48372ED2AA666C6008D33ED /* BravuraText.otf */,
 				E48397C82C4996C800AC3351 /* JustDronesApp.swift */,
 				E436CD132A9AA3580042B9C0 /* ContentView.swift */,
-				E428CD392DEB6F0400D8B2A1 /* UIStuff.swift */,
 				E419AFD92DEAA4BB00D6F274 /* Models */,
 				E419AFDA2DEAA70C00D6F274 /* Menus */,
 				E419AFD42DEA9F0E00D6F274 /* Drone Layouts */,
-				E436CD412A9AA4180042B9C0 /* Buttons.swift */,
 				E436CD172A9AA35A0042B9C0 /* Preview Content */,
 			);
 			path = JustDrones;
@@ -333,8 +327,6 @@
 				E48397C92C4996C800AC3351 /* JustDronesApp.swift in Sources */,
 				E436CD142A9AA3580042B9C0 /* ContentView.swift in Sources */,
 				E419AFEE2DEB4E5100D6F274 /* ContentViewPreview.swift in Sources */,
-				E428CD3A2DEB6F0900D8B2A1 /* UIStuff.swift in Sources */,
-				E436CD422A9AA4180042B9C0 /* Buttons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
