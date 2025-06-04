@@ -63,11 +63,6 @@ struct NamingHelper {
         if accidentalindex < -3 {Notename.append("-")}
         return Notename
     }
-    public static func pitchClass(fifths: Int, thirds: Int) -> String {
-        var total = 9 + 7*fifths + 4*thirds
-        while total < 0 {total += 12}
-        return String(total % 12)
-    }
     public static func germanName (_ namingIndex: Int) -> String {
         var postotalindex = namingIndex
         while postotalindex < 0 {postotalindex += 7}
@@ -125,6 +120,12 @@ struct NamingHelper {
         if accidentalindex > 3 {Notename.append("+")}
         if accidentalindex < -3 {Notename.append("-")}
         return Notename
+    }
+    
+    public static func pitchClass(fifths: Int, thirds: Int) -> String {
+        var total = 9 + 7*fifths + 4*thirds
+        while total < 0 {total += 12}
+        return String(total % 12)
     }
 }
 

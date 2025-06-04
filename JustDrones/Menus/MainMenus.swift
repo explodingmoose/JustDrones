@@ -200,6 +200,16 @@ struct ControlMenu: View {
                         }
                         
                         HStack(spacing: 10) {
+                            Text("Notation System:")
+                            Picker("Note Name", selection: $namingMode) {
+                                ForEach(NamingMode.allCases) { language in
+                                    Text(language.rawValue)
+                                }
+                            }
+                            .pickerStyle(.menu)
+                        }
+                        
+                        HStack(spacing: 10) {
                             Text("Diapason:")
                             Picker("Standard A4", selection: $droneManager.diapason) {
                                 ForEach(diapasons, id: \.self) {
@@ -218,24 +228,6 @@ struct ControlMenu: View {
                             }
                             .pickerStyle(.menu)
                         }
-                        
-                        HStack(spacing: 10) {
-                            Text("Name Notation:")
-                            Picker("Note Name", selection: $namingMode) {
-                                ForEach(NamingMode.allCases) { language in
-                                    Text(language.rawValue)
-                                }
-                            }
-                            .pickerStyle(.menu)
-                        }
-                        
-                        Button(action: {
-                            synth.clearQueue()
-                        }) {
-                            Text("Stop All Drones!")
-                                .foregroundStyle(Color.accentColor)
-                        }
-                        
                     }
                     
                     Button(action: {

@@ -84,6 +84,12 @@ struct ContentView: View {
                         .foregroundStyle(theRecorder.recording ? .red : Color.accentColor)
                     
             }
+            Button(action: {
+                theSynth.clearQueue()
+            }) {
+                Image(systemName: "exclamationmark.octagon")
+                    .iconStyle()
+            }
         }
     }
     var menu: some View {
