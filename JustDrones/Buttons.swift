@@ -45,6 +45,7 @@ struct ButtonLabel: View {
 struct DroneButton: View {
     let drone: Drone
     let displayMode: DisplayMode
+    let namingMode: NamingMode
     let recorder: RecordingManager
     let synth: SynthManager
     
@@ -64,7 +65,7 @@ struct DroneButton: View {
                 isTapped.toggle()
                 //Add a copy of the drone to recorded if recording
                 if recorder.recording {
-                    recorder.recorded.append(Drone(frequency: drone.frequency, noteName: drone.noteName, pitchClass: drone.pitchClass))
+                    recorder.recorded.append(Drone(frequency: drone.frequency, namingIndex: drone.namingIndex, pitchClass: drone.pitchClass))
                 }
             }
             
@@ -73,7 +74,7 @@ struct DroneButton: View {
             Circle()
                 .fill(circleColor)
                 .frame(width: droneRadius * 2, height: droneRadius * 2)
-                .overlay(ButtonLabel(displayMode: displayMode, frequency: drone.frequency, noteName: drone.noteName, pitchClass: drone.pitchClass)
+                .overlay(ButtonLabel(displayMode: displayMode, frequency: drone.frequency, noteName: NamingHelper.noteName(namingIndex: drone.namingIndex, namingMode: namingMode), pitchClass: drone.pitchClass)
                 )
         }
         .buttonStyle(PlainButtonStyle())

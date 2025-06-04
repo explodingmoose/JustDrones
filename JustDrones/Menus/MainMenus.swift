@@ -221,7 +221,7 @@ struct ControlMenu: View {
                         
                         HStack(spacing: 10) {
                             Text("Name Notation:")
-                            Picker("Note Name", selection: $droneManager.namingMode) {
+                            Picker("Note Name", selection: $namingMode) {
                                 ForEach(NamingMode.allCases) { language in
                                     Text(language.rawValue)
                                 }

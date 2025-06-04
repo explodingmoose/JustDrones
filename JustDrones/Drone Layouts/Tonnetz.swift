@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Tonnetz: View {
     let displayMode: DisplayMode
+    let namingMode: NamingMode
     let synth: SynthManager
     let recorder: RecordingManager
     let droneManager: DroneManager
@@ -31,7 +32,7 @@ struct Tonnetz: View {
             let cornerY = geometry.size.height / 2.0 - (2.0*droneRadius*2)
             ForEach(0...8, id: \.self) { i in
                 ForEach(0...4, id: \.self) { j in
-                    DroneButton(drone: droneManager.TonnetzManager[i][j], displayMode: displayMode, recorder: recorder, synth: synth, droneRadius: droneRadius)
+                    DroneButton(drone: droneManager.TonnetzManager[i][j], displayMode: displayMode, namingMode: namingMode, recorder: recorder, synth: synth, droneRadius: droneRadius)
                         .position(x: XPosition(F: i, T: j, refx: cornerX), y: YPosition(T: j, refy: cornerY, height: height))
                 }
             }

@@ -15,24 +15,27 @@ struct NamingHelper {
     public static let dutchNotes = ["F", "C", "G", "D", "A", "E", "B"]
     public static let solfege = ["fa", "do", "sol", "re", "la", "mi", "si"]
     
-    public static func noteName(fifths: Int, thirds: Int, namingMode: NamingMode) -> String {
+    public static func namingIndex(fifths: Int, thirds: Int) -> Int {
+        return fifths + 4 + (4 * thirds)
+    }
+    
+    public static func noteName(namingIndex: Int, namingMode: NamingMode) -> String {
         switch namingMode {
         case .English:
-            return englishName(fifths: fifths, thirds: thirds)
+            return englishName(namingIndex)
         case .Solfège:
-            return italianName(fifths: fifths, thirds: thirds)
+            return italianName(namingIndex)
         case .Deutsch:
-            return germanName(fifths: fifths, thirds: thirds)
+            return germanName(namingIndex)
         case .Nederlands:
-            return dutchName(fifths: fifths, thirds: thirds)
+            return dutchName(namingIndex)
         }
     }
-    public static func englishName(fifths: Int, thirds: Int) -> String {
-            let totalindex = fifths + 4 + (4 * thirds)
-            var postotalindex = totalindex
+    public static func englishName(_ namingIndex: Int) -> String {
+            var postotalindex = namingIndex
             while postotalindex < 0 {postotalindex += 7}
             let fifthnameindex = postotalindex % 7
-            let accidentalindex = Int(floor(Double(totalindex)/7.0))
+            let accidentalindex = Int(floor(Double(namingIndex)/7.0))
             var Notename = naturalNotes[fifthnameindex]
             if accidentalindex == 1 {Notename.append("\u{E262}")}
             if accidentalindex == -1 {Notename.append("\u{E260}")}
@@ -44,12 +47,11 @@ struct NamingHelper {
             if accidentalindex < -3 {Notename.append("-")}
             return Notename
         }
-    public static func italianName(fifths: Int, thirds: Int) -> String {
-        let totalindex = fifths + 4 + (4 * thirds)
-        var postotalindex = totalindex
+    public static func italianName(_ namingIndex: Int) -> String {
+        var postotalindex = namingIndex
         while postotalindex < 0 {postotalindex += 7}
         let fifthnameindex = postotalindex % 7
-        let accidentalindex = Int(floor(Double(totalindex)/7.0))
+        let accidentalindex = Int(floor(Double(namingIndex)/7.0))
         var Notename = solfege[fifthnameindex]
         if accidentalindex == 1 {Notename.append("\u{E262}")}
         if accidentalindex == -1 {Notename.append("\u{E260}")}
@@ -66,12 +68,11 @@ struct NamingHelper {
         while total < 0 {total += 12}
         return String(total % 12)
     }
-    public static func germanName (fifths: Int, thirds: Int) -> String {
-        let totalindex = fifths + 4 + (4 * thirds)
-        var postotalindex = totalindex
+    public static func germanName (_ namingIndex: Int) -> String {
+        var postotalindex = namingIndex
         while postotalindex < 0 {postotalindex += 7}
         let fifthnameindex = postotalindex % 7
-        let accidentalindex = Int(floor(Double(totalindex)/7.0))
+        let accidentalindex = Int(floor(Double(namingIndex)/7.0))
         var Notename = germanNotes[fifthnameindex]
         if accidentalindex == 1 {Notename.append("is")}
         if accidentalindex == -1 {
@@ -98,12 +99,11 @@ struct NamingHelper {
         if accidentalindex < -3 {Notename.append("-")}
         return Notename
     }
-    public static func dutchName (fifths: Int, thirds: Int) -> String {
-        let totalindex = fifths + 4 + (4 * thirds)
-        var postotalindex = totalindex
+    public static func dutchName (_ namingIndex: Int) -> String {
+        var postotalindex = namingIndex
         while postotalindex < 0 {postotalindex += 7}
         let fifthnameindex = postotalindex % 7
-        let accidentalindex = Int(floor(Double(totalindex)/7.0))
+        let accidentalindex = Int(floor(Double(namingIndex)/7.0))
         var Notename = dutchNotes[fifthnameindex]
         if accidentalindex == 1 {Notename.append("is")}
         if accidentalindex == -1 {
@@ -143,13 +143,13 @@ class Drone: Identifiable, Equatable, Codable {
     
     let id: UUID
     var frequency:Double
-    var noteName:String
+    let namingIndex: Int
     let pitchClass:String
     
-    init(id: UUID = UUID(), frequency: Double, noteName: String, pitchClass: String) {
+    init(id: UUID = UUID(), frequency: Double, namingIndex: Int, pitchClass: String) {
         self.id = id
         self.frequency = frequency
-        self.noteName = noteName
+        self.namingIndex = namingIndex
         self.pitchClass = pitchClass
     }
 }
@@ -165,7 +165,6 @@ class Drone: Identifiable, Equatable, Codable {
         if thirds < 0 {frequency /= thirdpower} else {frequency *= thirdpower}
         return frequency
     }
-    
     // A function to keep pitches within the ranges of the stop
     private func normfrequency(frequency: Double, diapason: Int, stop: Int) -> Double {
         
@@ -204,19 +203,6 @@ class Drone: Identifiable, Equatable, Codable {
             CoFManager[i].frequency = normfrequency(frequency: frequency, diapason: diapason, stop: stop)
         }
     }
-    private func nameDrones(language: NamingMode) {
-        for i in 0...8 {
-            for j in 0...4 {
-                let fifths = i-4
-                let thirds = j-2
-                TonnetzManager[i][j].noteName = NamingHelper.noteName(fifths: fifths, thirds: thirds, namingMode: language)
-            }
-        }
-        for i in 0...23 {
-            let fifths = i - 12
-            CoFManager[i].noteName = NamingHelper.noteName(fifths: fifths, thirds: 0, namingMode: language)
-        }
-    }
     
     //When these variables are updated, update the Tonnetz and CoF, then save the value
     var diapason: Int = 440 {
@@ -239,12 +225,6 @@ class Drone: Identifiable, Equatable, Codable {
             UserDefaults.standard.set(temperedfifth, forKey: "drones.temperedfifth")
         }
     }
-    var namingMode: NamingMode {
-        didSet {
-            nameDrones(language: namingMode)
-            UserDefaults.standard.set(namingMode.rawValue, forKey: "drones.namingMode")
-        }
-    }
     
     //Sets up a matrix of the proper size
     private static func newTonnetzMatrix() -> [[Drone]] {
@@ -256,7 +236,7 @@ class Drone: Identifiable, Equatable, Codable {
             for j in 0...4 {
                 let fifths = i-4
                 let thirds = j-2
-                matrix[i].append( Drone(frequency: 0, noteName: NamingHelper.englishName(fifths: fifths, thirds: thirds), pitchClass: NamingHelper.pitchClass(fifths: fifths, thirds: thirds)))
+                matrix[i].append( Drone(frequency: 0, namingIndex: NamingHelper.namingIndex(fifths: fifths, thirds: thirds), pitchClass: NamingHelper.pitchClass(fifths: fifths, thirds: thirds)))
             }
         }
         
@@ -267,7 +247,7 @@ class Drone: Identifiable, Equatable, Codable {
         
         for i in 0...23 {
             let fifths = i - 12
-            matrix.append(Drone(frequency: 0, noteName: NamingHelper.englishName(fifths: fifths, thirds: 0), pitchClass: NamingHelper.pitchClass(fifths: fifths, thirds: 0)))
+            matrix.append(Drone(frequency: 0, namingIndex: NamingHelper.namingIndex(fifths: fifths, thirds: 0), pitchClass: NamingHelper.pitchClass(fifths: fifths, thirds: 0)))
         }
         
         return matrix
@@ -285,11 +265,8 @@ class Drone: Identifiable, Equatable, Codable {
         diapason = UserDefaults.standard.integer(forKey: "drones.diapason")
         stop = UserDefaults.standard.integer(forKey: "drones.stop")
         temperedfifth = UserDefaults.standard.double(forKey: "drones.temperedfifth")
-        let decoded = UserDefaults.standard.string(forKey: "drones.namingMode")
-        namingMode = NamingMode(rawValue: decoded ?? "English") ?? .English
         
         tuneTonnetz()
         tuneCoF()
-        nameDrones(language: namingMode)
     }
 }

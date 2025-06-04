@@ -9,14 +9,15 @@ import SwiftUI
 
 
 enum DisplayMode: String {
-    case pitchClass
-    case frequency
-    case noteName
+    case pitchClass = "Pitch Class"
+    case frequency = "Frequency"
+    case noteName = "Note Name"
 }
-enum TuningMode: String {
-    case Tonnetz
-    case CircleFifths
-    case Recorded
+enum TuningMode: String, CaseIterable, Identifiable {
+    case CircleFifths = "Circle of Fifths"
+    case Tonnetz = "Tonnetz"
+    case Recorded = "Recorded"
+    var id: Self { self }
 }
 enum NamingMode: String, CaseIterable, Identifiable {
     case English
@@ -37,16 +38,17 @@ struct ContentView: View {
     @SceneStorage("ContentView.randomMenu") private var isRandomMenuOn = false
     @SceneStorage("ContentView.displayMode") private var displayMode = DisplayMode.noteName
     @SceneStorage("ContentView.tuningMode") private var tuningMode = TuningMode.Tonnetz
+    @SceneStorage("ContentView.namingMode") private var namingMode = NamingMode.English
     
     var drones: some View {
         VStack(spacing: 5) {
             switch tuningMode {
             case .Tonnetz:
-                Tonnetz(displayMode: displayMode, synth: theSynth, recorder: theRecorder, droneManager: theDroneManager)
+                Tonnetz(displayMode: displayMode, namingMode: namingMode, synth: theSynth, recorder: theRecorder, droneManager: theDroneManager)
             case .CircleFifths:
-                CircleOfFifths(displayMode: displayMode, synth: theSynth, recorder: theRecorder, droneManager: theDroneManager)
+                CircleOfFifths(displayMode: displayMode, namingMode: namingMode, synth: theSynth, recorder: theRecorder, droneManager: theDroneManager)
             case .Recorded:
-                Recorded(diapason: 440, stop: 16, displayMode: displayMode, recorder: theRecorder, synth: theSynth)
+                Recorded(diapason: 440, stop: 16, displayMode: displayMode, namingMode: namingMode, recorder: theRecorder, synth: theSynth)
                     .onAppear() {theRecorder.recording = false}
             }
         }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CircleOfFifths: View {
     let displayMode: DisplayMode
+    let namingMode: NamingMode
     let synth: SynthManager
     let recorder: RecordingManager
     @Bindable var droneManager: DroneManager
@@ -36,7 +37,7 @@ struct CircleOfFifths: View {
                     }
                     Picker("Tonus", selection: $tonus) {
                         ForEach(0..<12) {
-                            Text(NamingHelper.englishName(fifths: 6-$0, thirds: 0)).tag($0)
+                            Text(NamingHelper.noteName(namingIndex: NamingHelper.namingIndex(fifths: 6-$0, thirds: 0), namingMode: namingMode)).tag($0)
                                 .font(.custom("Bravura-Text", size: 17))
                                 .foregroundColor(.secondary)
                         }
@@ -48,7 +49,7 @@ struct CircleOfFifths: View {
                 }
                 .position(x: midX, y: midY)
                 
-                DroneButton(drone: droneManager.CoFManager[F-tonus], displayMode: displayMode, recorder: recorder, synth: synth, droneRadius: 27.0)
+                DroneButton(drone: droneManager.CoFManager[F-tonus], displayMode: displayMode, namingMode: namingMode, recorder: recorder, synth: synth, droneRadius: 27.0)
                     .frame(width: circleRadius * 0.2, height: circleRadius * 0.2)
                     .position(x: x, y: y)
             }

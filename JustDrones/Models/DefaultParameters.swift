@@ -15,7 +15,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             "drones.diapason": 440,
             "drones.stop": 16,
             "drones.temperedfifth": 1.5,
-            "drones.namingMode": "English",
             // synth parameters //
             "synth.isPhaser": false,
             "synth.isFilter": true,

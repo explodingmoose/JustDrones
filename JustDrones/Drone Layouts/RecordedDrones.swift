@@ -10,9 +10,10 @@ import SwiftUI
 
 struct Recorded: View {
     
-    let diapason: Int
+    let diapason: Int ///Check if this is actually needed
     let stop: Int
     let displayMode: DisplayMode
+    let namingMode: NamingMode
     var recorder: RecordingManager
     let synth: SynthManager
     
@@ -82,7 +83,7 @@ struct Recorded: View {
                         ScrollView(.horizontal, showsIndicators: false) {
                                 LazyHStack(spacing: 0) {
                                     ForEach(recorder.recorded) {drone in
-                                        DroneButton(drone: drone, displayMode: displayMode, recorder: recorder, synth:synth, droneRadius: 27.0)
+                                        DroneButton(drone: drone, displayMode: displayMode, namingMode: namingMode, recorder: recorder, synth:synth, droneRadius: 27.0)
                                     }
                                 }
                                 .containerRelativeFrame(.horizontal, alignment: .center)
@@ -104,7 +105,7 @@ struct Recorded: View {
                         }
                         VStack {
                             Text("Drone for Pedal Use:")
-                            PedalDrone(synth: synth, recorder: recorder, displayMode: displayMode)
+                            PedalDrone(synth: synth, recorder: recorder, displayMode: displayMode, namingMode: namingMode)
                         }
                     }
                 }
@@ -163,6 +164,7 @@ struct PedalDrone: View {
     var synth: SynthManager
     let recorder: RecordingManager
     let displayMode: DisplayMode
+    let namingMode: NamingMode
     
     @State private var isTapped = false
     @FocusState private var isFocused: Bool
@@ -192,7 +194,7 @@ struct PedalDrone: View {
         case .frequency:
             return "\(String(format: "%.1f", Drone.frequency))"
         case .noteName:
-            return Drone.noteName
+            return NamingHelper.noteName(namingIndex: Drone.namingIndex, namingMode: namingMode)
         case .pitchClass:
             return Drone.pitchClass
         }
@@ -226,7 +228,7 @@ struct PedalDrone: View {
                         .fill(circleColor)
                         .frame(width: 27.0 * 2, height: 27.0 * 2)
                         .overlay(
-                            ButtonLabel(displayMode: displayMode, frequency: recorder.recorded[index].frequency, noteName: recorder.recorded[index].noteName, pitchClass: recorder.recorded[index].pitchClass))
+                            ButtonLabel(displayMode: displayMode, frequency: recorder.recorded[index].frequency, noteName: NamingHelper.noteName(namingIndex: recorder.recorded[index].namingIndex,namingMode: namingMode), pitchClass: recorder.recorded[index].pitchClass))
                 }
             }
             .focusable()
