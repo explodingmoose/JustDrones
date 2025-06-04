@@ -18,6 +18,13 @@ enum TuningMode: String {
     case CircleFifths
     case Recorded
 }
+enum NamingMode: String, CaseIterable, Identifiable {
+    case English
+    case Solfège
+    case Deutsch
+    case Nederlands
+    var id: Self { self }
+}
 
 struct ContentView: View {
     //TODO: it would be good to organize the variables to be in the same order consistently

@@ -36,7 +36,7 @@ struct CircleOfFifths: View {
                     }
                     Picker("Tonus", selection: $tonus) {
                         ForEach(0..<12) {
-                            Text(NamingHelper.noteName(fifths: 6-$0, thirds: 0)).tag($0)
+                            Text(NamingHelper.englishName(fifths: 6-$0, thirds: 0)).tag($0)
                                 .font(.custom("Bravura-Text", size: 17))
                                 .foregroundColor(.secondary)
                         }

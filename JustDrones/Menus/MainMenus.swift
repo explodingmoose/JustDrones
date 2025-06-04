@@ -219,12 +219,14 @@ struct ControlMenu: View {
                             .pickerStyle(.menu)
                         }
                         
-                        
-                        HStack(spacing: 20) {
-                            Text("Pedal:")
-                            Toggle("Pedal:", isOn: $isPedal)
-                                .toggleStyle(SwitchToggleStyle(tint: .accentColor))
-                                .labelsHidden()
+                        HStack(spacing: 10) {
+                            Text("Name Notation:")
+                            Picker("Note Name", selection: $droneManager.namingMode) {
+                                ForEach(NamingMode.allCases) { language in
+                                    Text(language.rawValue)
+                                }
+                            }
+                            .pickerStyle(.menu)
                         }
                         
                         Button(action: {
