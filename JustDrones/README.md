@@ -13,7 +13,7 @@ This Folder contains everything in the app:
     * Drone Manager - Controls the tuning of drones according to the diapason, stop, and size of fifth.
     * Recording Manager - Houses the preset drone lists
     * Synth Manager - Controls all of the synth parameters, and responds to turning on and off drones. In AudioKit terms, this acts as the conductor.
-* Menus - All of the menus used to control variabls
+* Menus - All of the menus used to control variables
 * Drone Layouts - Views for the drones
     * Buttons - The actual button of the drone, which handles the display of the drone information and telling the synth to turn on and off drones
     * CircleOfFifths
