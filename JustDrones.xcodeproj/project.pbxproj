@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E419AFEE2DEB4E5100D6F274 /* ContentViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E419AFED2DEB4E4400D6F274 /* ContentViewPreview.swift */; };
+		E426DB862DF0F47000D7D7A7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E426DB852DF0F47000D7D7A7 /* README.md */; };
 		E436CD142A9AA3580042B9C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD132A9AA3580042B9C0 /* ContentView.swift */; };
 		E436CD162A9AA35A0042B9C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E436CD152A9AA35A0042B9C0 /* Assets.xcassets */; };
 		E436CD192A9AA35A0042B9C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E436CD182A9AA35A0042B9C0 /* Preview Assets.xcassets */; };
@@ -46,6 +47,8 @@
 
 /* Begin PBXFileReference section */
 		E419AFED2DEB4E4400D6F274 /* ContentViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewPreview.swift; sourceTree = "<group>"; };
+		E426DB842DF0EC2900D7D7A7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E426DB852DF0F47000D7D7A7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E436CD0E2A9AA3580042B9C0 /* JustDrones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustDrones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E436CD132A9AA3580042B9C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E436CD152A9AA35A0042B9C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		E436CD052A9AA3580042B9C0 = {
 			isa = PBXGroup;
 			children = (
+				E426DB842DF0EC2900D7D7A7 /* README.md */,
 				E436CD102A9AA3580042B9C0 /* JustDrones */,
 				E436CD212A9AA35B0042B9C0 /* JustDronesTests */,
 				E436CD2B2A9AA35B0042B9C0 /* JustDronesUITests */,
@@ -132,6 +136,7 @@
 				E419AFDA2DEAA70C00D6F274 /* Menus */,
 				E419AFD42DEA9F0E00D6F274 /* Drone Layouts */,
 				E436CD172A9AA35A0042B9C0 /* Preview Content */,
+				E426DB852DF0F47000D7D7A7 /* README.md */,
 			);
 			path = JustDrones;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 			files = (
 				E436CD192A9AA35A0042B9C0 /* Preview Assets.xcassets in Resources */,
 				E48372EE2AA666C7008D33ED /* BravuraText.otf in Resources */,
+				E426DB862DF0F47000D7D7A7 /* README.md in Resources */,
 				E43D7E782C4EAA580054D7B4 /* Launch Screen.storyboard in Resources */,
 				E436CD162A9AA35A0042B9C0 /* Assets.xcassets in Resources */,
 			);

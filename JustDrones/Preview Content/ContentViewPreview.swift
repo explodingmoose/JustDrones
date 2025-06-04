@@ -42,7 +42,3 @@ struct SubOscMenuPreview: View {
         .shadow(radius: 4)
     }
 }
-
-#Preview {
-    SubOscMenuPreview()
-}
