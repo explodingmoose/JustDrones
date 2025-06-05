@@ -10,7 +10,7 @@ and music, I've uploaded the source code to GitHub.
 ## Just Intonation
 
 Just intonation is a term that is often used without complete nuisance. I recommend checking out the
- [Xenharmonic Wiki] (https://en.xen.wiki/w/Just_intonation) on Just Intonation. 
+ [Xenharmonic Wiki](https://en.xen.wiki/w/Just_intonation) on Just Intonation. 
  This app offers tuning in the 3-limit and 5-limit via "Circle of Fifths" and "Tonnetz" respectively.
 
 3-limit systems tune all pitches as they relate from the fundamental to the 3rd harmonic. In other words, they tune
@@ -32,4 +32,4 @@ All of the audio components of this app use AudioKit and related packages. Pleas
 ## Code Usage
 
 I am an amateur programmer at best, so feel free to offer suggestions or feedback! You are also welcome to send questions.
-Feel free to use any part of the code (without just plagiarizing).
+Feel free to use any part of the code (without just plagiarizing). If you would like to support me, you can [Buy me a Coffee](https://buymeacoffee.com/poulioteli)
