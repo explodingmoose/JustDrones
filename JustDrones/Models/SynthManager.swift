@@ -251,7 +251,7 @@ struct Voice {
             voice.voiceMixer.balance = shapeBalance
         }
         subMixer = Mixer(voice1.subOsc, voice2.subOsc, voice3.subOsc, voice4.subOsc)
-        
+        if isSub {voiceMixer.addInput(subMixer)}
         //Effects
         phaser = Phaser(voiceMixer, notchMinimumFrequency: notchFloor, notchMaximumFrequency: notchCeiling, notchFrequency: notchFrequency, depth: phaserDepth, feedback: phaserFeedback, lfoBPM: lfoBPM)
         phaser.stop()
