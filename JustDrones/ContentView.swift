@@ -8,17 +8,15 @@
 import SwiftUI
 
 
-enum DisplayMode: String, CaseIterable, Identifiable {
-    case pitchClass = "Pitch Class"
-    case frequency = "Frequency"
-    case noteName = "Note Name"
-    var id: Self { self }
+enum DisplayMode: String {
+    case pitchClass
+    case frequency
+    case noteName
 }
-enum TuningMode: String, CaseIterable, Identifiable {
-    case CircleFifths = "Circle of Fifths"
-    case Tonnetz = "Tonnetz"
-    case Recorded = "Recorded"
-    var id: Self { self }
+enum TuningMode: String {
+    case CircleFifths
+    case Tonnetz
+    case Recorded
 }
 enum NamingMode: String, CaseIterable, Identifiable {
     case English
@@ -82,7 +80,7 @@ struct ContentView: View {
             }) {
                     Image(systemName: "stop.circle")
                         .font(.system(size: 24))
-                        .foregroundStyle(theRecorder.recording ? .red : Color.accentColor)
+                        .foregroundStyle(theRecorder.recording ? .red : Color.accent)
                     
             }
             Button(action: {

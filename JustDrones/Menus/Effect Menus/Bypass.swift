@@ -10,7 +10,7 @@ import SwiftUI
 //Buttons for bypassing
 struct BypassButton: View {
     @Binding var effect: Bool
-    let label: String
+    let label: LocalizedStringResource
     
     var body: some View {
         HStack {

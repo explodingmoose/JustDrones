@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E419AFEE2DEB4E5100D6F274 /* ContentViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E419AFED2DEB4E4400D6F274 /* ContentViewPreview.swift */; };
 		E426DB862DF0F47000D7D7A7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E426DB852DF0F47000D7D7A7 /* README.md */; };
+		E434EE602DF2436A00100358 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E434EE5F2DF2436A00100358 /* Localizable.xcstrings */; };
 		E436CD142A9AA3580042B9C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436CD132A9AA3580042B9C0 /* ContentView.swift */; };
 		E436CD162A9AA35A0042B9C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E436CD152A9AA35A0042B9C0 /* Assets.xcassets */; };
 		E436CD192A9AA35A0042B9C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E436CD182A9AA35A0042B9C0 /* Preview Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		E419AFED2DEB4E4400D6F274 /* ContentViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewPreview.swift; sourceTree = "<group>"; };
 		E426DB842DF0EC2900D7D7A7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E426DB852DF0F47000D7D7A7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E434EE5F2DF2436A00100358 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		E436CD0E2A9AA3580042B9C0 /* JustDrones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustDrones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E436CD132A9AA3580042B9C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E436CD152A9AA35A0042B9C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				E48372ED2AA666C6008D33ED /* BravuraText.otf */,
 				E48397C82C4996C800AC3351 /* JustDronesApp.swift */,
 				E436CD132A9AA3580042B9C0 /* ContentView.swift */,
+				E434EE5F2DF2436A00100358 /* Localizable.xcstrings */,
 				E419AFD92DEAA4BB00D6F274 /* Models */,
 				E419AFDA2DEAA70C00D6F274 /* Menus */,
 				E419AFD42DEA9F0E00D6F274 /* Drone Layouts */,
@@ -273,6 +276,12 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
+				de,
+				fr,
+				it,
+				ru,
+				nl,
 			);
 			mainGroup = E436CD052A9AA3580042B9C0;
 			packageReferences = (
@@ -301,6 +310,7 @@
 			files = (
 				E436CD192A9AA35A0042B9C0 /* Preview Assets.xcassets in Resources */,
 				E48372EE2AA666C7008D33ED /* BravuraText.otf in Resources */,
+				E434EE602DF2436A00100358 /* Localizable.xcstrings in Resources */,
 				E426DB862DF0F47000D7D7A7 /* README.md in Resources */,
 				E43D7E782C4EAA580054D7B4 /* Launch Screen.storyboard in Resources */,
 				E436CD162A9AA35A0042B9C0 /* Assets.xcassets in Resources */,
@@ -428,6 +438,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -484,6 +495,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -516,7 +528,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Tonsoftuners.JustDrones;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -556,7 +568,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Tonsoftuners.JustDrones;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
