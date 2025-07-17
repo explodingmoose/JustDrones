@@ -601,7 +601,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bordun für Betätigung mit Pedal"
+            "value" : "Bordun für Betätigung mit Pedal:"
           }
         },
         "en" : {
@@ -613,13 +613,13 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bordón para uso con pedal"
+            "value" : "Bordón para uso con pedal:"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bourdon pour utilisation avec pédale"
+            "value" : "Bourdon pour utilisation avec pédale:"
           }
         },
         "nl" : {
@@ -834,6 +834,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Frequentie: %@ Hz"
+          }
+        }
+      }
+    },
+    "Go" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ir"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allez"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ga"
           }
         }
       }
