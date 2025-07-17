@@ -9,19 +9,38 @@ import SwiftUI
 
 struct RandomMenu: View {
     @Binding var isRandomMenuOn: Bool
+    let namingMode: NamingMode
     
-    @State private var note = "Go"
-    private let notes = ["A", "A\u{266F}/B\u{266D}", "B", "C", "C\u{266F}/D\u{266D}", "D", "D\u{266F}/E\u{266D}", "E", "F", "F\u{266F}/G\u{266D}", "G", "G\u{266F}/A\u{266D}"]
+    @State private var noteindex = 0
+    @State private var note = String(localized: "Go") /// make this localizable
+    private let noteindices = [-9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
     
     var body: some View {
         VStack {
             Text("A random note:")
                 .padding()
-            Button(action: {note = notes.randomElement()!}, label: {
+            Button(action: {
+                noteindex = noteindices.randomElement()!
+                note = NamingHelper.noteName(namingIndex: NamingHelper.namingIndex(fifths: noteindex, thirds: 0), namingMode: namingMode)
+            }, label: {
                 Circle()
                     .fill(.gray)
                     .frame(width: 54.0)
-                    .overlay(Text(note).foregroundStyle(.black))
+                    .overlay(
+                        HStack(spacing: 1) {
+                            ForEach(Array(note.enumerated()), id: \.offset) { index,character in
+                                if character.unicodeScalars.allSatisfy({ $0.isASCII }) {
+                                    Text(String(character))
+                                        .font(.system(size: 17))
+                                        .foregroundColor(.black)
+                                } else {
+                                    Text(String(character))
+                                        .font(.custom("Bravura-Text", size: 25))
+                                        .foregroundColor(.black)
+                                }
+                            }
+                        }
+                    )
             })
             
             Button(action: {

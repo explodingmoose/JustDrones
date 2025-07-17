@@ -95,7 +95,7 @@ struct ContentView: View {
         ZStack{
             if isSynthMenuOpen {SynthMenu(synth: theSynth, isSynthMenuOpen: $isSynthMenuOpen)}
             if isControlMenuOpen {ControlMenu(droneManager: theDroneManager, synth: theSynth, isControlMenuOpen: $isControlMenuOpen, displayMode: $displayMode, tuningMode: $tuningMode, namingMode: $namingMode)}
-            if isRandomMenuOn {RandomMenu(isRandomMenuOn: $isRandomMenuOn)}
+            if isRandomMenuOn {RandomMenu(isRandomMenuOn: $isRandomMenuOn, namingMode: namingMode)}
         }
     }
     
