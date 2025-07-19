@@ -233,6 +233,12 @@
             "value" : "Une note aléatoire:"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una nota casuale:"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -260,6 +266,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Annuler"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stornare"
           }
         },
         "nl" : {
@@ -295,6 +307,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Limite Haute: %@ Hz"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Massimale: %@ Hz"
           }
         },
         "nl" : {
@@ -360,6 +378,12 @@
             "value" : "Effacer"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancella"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -387,6 +411,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fermer"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chiudi"
           }
         },
         "nl" : {
@@ -418,6 +448,12 @@
             "value" : "Coupure: %lld Hz"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taglio: %lld Hz"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -445,6 +481,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profondeur: %@ Hz"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profondità: %@ Hz"
           }
         },
         "nl" : {
@@ -598,6 +640,12 @@
             "value" : "Bourdon pour utilisation avec pédale:"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bordone da utilizzare con pedale:"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -697,6 +745,12 @@
             "value" : "Filtre"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filtro"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -730,6 +784,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Base: %@ Hz"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minimo: %@ Hz"
           }
         },
         "nl" : {
@@ -834,6 +894,12 @@
             "value" : "Allez"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vai"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -857,6 +923,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LFO"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "LFO"
@@ -888,6 +960,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "LFO (Coupure de Filtre)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LFO (Taglio del filtro)"
           }
         },
         "nl" : {
@@ -924,6 +1002,12 @@
             "value" : "Taux LFO: %@ BPM"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Velocità dell’LFO: %@ BPM"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -937,19 +1021,25 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tiefpassfilter (Moogleiter)"
+            "value" : "Tiefpassfilter (Moog Ladder)"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Filtro Paso Bajo (Escalera Moog)"
+            "value" : "Filtro Paso Bajo (Moog Ladder)"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Filtre Passe-bas (Échelle de Moog)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filtro Passabasso (Moog Ladder)"
           }
         },
         "nl" : {
@@ -980,6 +1070,12 @@
             "value" : "Gain Master: %@ dB"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guadagno Principale: %@ dB"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1003,6 +1099,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Morph: %@"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Morph: %@"
@@ -1034,6 +1136,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nom"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome"
           }
         },
         "nl" : {
@@ -1105,6 +1213,12 @@
             "value" : "Nouveau"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nuovo"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1131,6 +1245,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Système de Notation:"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sistema di Notazione:"
           }
         },
         "nl" : {
@@ -1161,6 +1281,12 @@
             "value" : "Nom de Notes"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome della Nota"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1189,6 +1315,12 @@
             "value" : "Rien ici"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuoto"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1213,6 +1345,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Osc 1:"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Osc 1:"
@@ -1247,6 +1385,12 @@
             "value" : "Osc 2:"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Osc 2:"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1275,6 +1419,12 @@
             "value" : "Équilibre de Oscillateur: %@"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bilanciere degli Oscilatori"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1299,6 +1449,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phaser"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Phaser"
@@ -1366,6 +1522,12 @@
             "value" : "Préréglage"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preimpostazioni"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1393,6 +1555,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pure"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pura"
           }
         },
         "nl" : {
@@ -1423,6 +1591,12 @@
             "value" : "Taux: %@ Hz"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tasso: %@ Hz"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1449,6 +1623,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enregistrées"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrati"
           }
         },
         "nl" : {
@@ -1479,6 +1659,12 @@
             "value" : "Résonance: %@ dB"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Risonanza: %@ dB"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1505,6 +1691,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enregistrer"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salva"
           }
         },
         "nl" : {
@@ -1535,6 +1727,12 @@
             "value" : "Enregistrer Sous:"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salva con Nome:"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1562,6 +1760,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Forme:"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forma:"
           }
         },
         "nl" : {
@@ -1667,6 +1871,12 @@
             "value" : "Octave de Sous"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ottava-Sub"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1699,6 +1909,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sous-Oscillateur"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oscillatore-Sub"
           }
         },
         "nl" : {
@@ -1798,6 +2014,12 @@
             "value" : "Tonus"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tonus"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1831,6 +2053,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Utilisateur"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utente"
           }
         },
         "nl" : {
