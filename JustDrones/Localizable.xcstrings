@@ -35,12 +35,6 @@
             "state" : "translated",
             "value" : "%@ Hz"
           }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ Гц"
-          }
         }
       }
     },
@@ -75,12 +69,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@’"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@'"
           }
         }
       }
@@ -348,12 +336,6 @@
             "state" : "translated",
             "value" : "Kwintencirkel"
           }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Квинтовый круг"
-          }
         }
       }
     },
@@ -551,12 +533,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Stemtoon:"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Принципалы"
           }
         }
       }
