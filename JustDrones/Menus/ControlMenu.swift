@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ControlMenu: View {
-    private let diapasons = [415, 422, 423, 432, 435, 436, 439, 440, 441, 442, 443, 444, 445, 446]
+    private let diapasons = [392, 409, 410, 415, 422.5, 423, 432, 435, 436, 439, 440, 441, 442, 443, 444, 445, 446, 450, 454.4, 465]
     private let stops = [2, 4, 8, 16, 32, 64]
     @Bindable var droneManager: DroneManager
     var synth: SynthManager
@@ -63,7 +63,7 @@ struct ControlMenu: View {
                             Text("Diapason:")
                             Picker("", selection: $droneManager.diapason) {
                                 ForEach(diapasons, id: \.self) {
-                                    Text("\(String($0)) Hz")
+                                    Text("\(String(format: "%g", $0)) Hz")
                                 }
                             }
                             .pickerStyle(.menu)

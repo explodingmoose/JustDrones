@@ -161,8 +161,7 @@ class Drone: Identifiable, Equatable, Codable {
 
 //Handles creation and tuning of drones, tuning parameters
 @Observable class DroneManager {
-    private func frequency(temper: Double, fifths: Int, thirds: Int, diapason: Int) -> Double {
-        let diapason = Double(diapason)
+    private func frequency(temper: Double, fifths: Int, thirds: Int, diapason: Double) -> Double {
         let fifthpower = pow(temper, abs(Double(fifths)))
         let thirdpower = pow(1.25, abs(Double(thirds)))
         var frequency = diapason
@@ -171,10 +170,10 @@ class Drone: Identifiable, Equatable, Codable {
         return frequency
     }
     // A function to keep pitches within the ranges of the stop
-    private func normfrequency(frequency: Double, diapason: Int, stop: Int) -> Double {
+    private func normfrequency(frequency: Double, diapason: Double, stop: Int) -> Double {
         
-        let lowerC = Double(diapason) * 5.0/6.0
-        let upperC = Double(diapason) * 6.0/5.0
+        let lowerC = diapason * 5.0/6.0
+        let upperC = diapason * 6.0/5.0
         
         var baseoctave = frequency
         
@@ -210,7 +209,7 @@ class Drone: Identifiable, Equatable, Codable {
     }
     
     //When these variables are updated, update the Tonnetz and CoF, then save the value
-    var diapason: Int = 440 {
+    var diapason: Double = 440 {
         didSet{
             tuneTonnetz()
             tuneCoF()
@@ -267,7 +266,7 @@ class Drone: Identifiable, Equatable, Codable {
         CoFManager = DroneManager.newCoFMatrix()
         
         //Recall stored parameters
-        diapason = UserDefaults.standard.integer(forKey: "drones.diapason")
+        diapason = UserDefaults.standard.double(forKey: "drones.diapason")
         stop = UserDefaults.standard.integer(forKey: "drones.stop")
         temperedfifth = UserDefaults.standard.double(forKey: "drones.temperedfifth")
         
