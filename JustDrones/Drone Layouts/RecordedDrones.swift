@@ -222,7 +222,10 @@ struct PedalDrone: View {
             let circleColor = isTapped ? Color.accentColor : Color.gray
             Button(action: {
                 isTapped.toggle()
-                if !isTapped {synth.clearQueue()} else {turnOn()}
+                if !isTapped {
+                    synth.clearQueue()
+                    turnOff()
+                } else {turnOn()}
             })
             {
                 if recorder.recorded.isEmpty {EmptyView()} else {
