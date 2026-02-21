@@ -25,6 +25,7 @@ struct Recorded: View {
         return {
             NavigationState = NavigationSplitViewColumn.detail
             recorder.load(key: key)
+            recorder.pedalDroneIndex = 0
         }
     }
     private func clear() -> () -> () {
@@ -64,6 +65,7 @@ struct Recorded: View {
                                 }
                                 .contentShape(Rectangle())
                                 .onTapGesture(perform: load(key: entry.name))
+
                             }
                             .onDelete { recorder.presets.remove(atOffsets: $0) }
                             .onMove { recorder.presets.move(fromOffsets: $0, toOffset: $1) }
@@ -169,24 +171,24 @@ struct PedalDrone: View {
     @State private var isTapped = false
     @FocusState private var isFocused: Bool
     
-    @SceneStorage("Recorded.index") private var index = 0
+    
     
     private func forward() {
-        index += 1
-        updateQueue(recorder.recorded[index])
+        recorder.pedalDroneIndex += 1
+        updateQueue(recorder.recorded[recorder.pedalDroneIndex])
     }
     private func backward() {
-        index -= 1
-        updateQueue(recorder.recorded[index])
+        recorder.pedalDroneIndex -= 1
+        updateQueue(recorder.recorded[recorder.pedalDroneIndex])
     }
     private func reset() {
-        index = 0
+        recorder.pedalDroneIndex = 0
     }
     
     //labels the pedal button to keep with the current index
     private var overlayer: String {
-        if index >= 0 && index < recorder.recorded.count {
-            return label(Drone: recorder.recorded[index])
+        if recorder.pedalDroneIndex >= 0 && recorder.pedalDroneIndex < recorder.recorded.count {
+            return label(Drone: recorder.recorded[recorder.pedalDroneIndex])
         } else {return ""}
     }
     private func label(Drone: Drone) -> String {
@@ -204,7 +206,7 @@ struct PedalDrone: View {
     @State private var tempQueue: [Drone] = []
     
     private func turnOn() {
-        tempQueue.append(recorder.recorded[index])
+        tempQueue.append(recorder.recorded[recorder.pedalDroneIndex])
     }
     private func updateQueue(_ drone: Drone) {
         if isTapped {
@@ -228,36 +230,42 @@ struct PedalDrone: View {
                         .fill(circleColor)
                         .frame(width: 27.0 * 2, height: 27.0 * 2)
                         .overlay(
-                            ButtonLabel(displayMode: displayMode, frequency: recorder.recorded[index].frequency, noteName: NamingHelper.noteName(namingIndex: recorder.recorded[index].namingIndex,namingMode: namingMode), pitchClass: recorder.recorded[index].pitchClass))
+                            ButtonLabel(displayMode: displayMode, frequency: recorder.recorded[recorder.pedalDroneIndex].frequency, noteName: NamingHelper.noteName(namingIndex: recorder.recorded[recorder.pedalDroneIndex].namingIndex,namingMode: namingMode), pitchClass: recorder.recorded[recorder.pedalDroneIndex].pitchClass))
+                        .onAppear() {
+                            recorder.pedalDroneIndex = 0
+                            isFocused = true
+                            reset()
+                            turnOff()
+                        }
+                        .focusable()
+                        .focused($isFocused)
+                        .focusEffectDisabled()
+                        .onKeyPress(keys: [KeyEquivalent.downArrow, KeyEquivalent.rightArrow], action: { press in
+                            if recorder.pedalDroneIndex >= 0 && recorder.pedalDroneIndex < recorder.recorded.count - 1 {
+                                forward()
+                            } else if recorder.pedalDroneIndex == recorder.recorded.count - 1 {
+                                turnOff()
+                                synth.clearQueue()
+                            }
+                            return .handled
+                                 
+                        })
+                        .onKeyPress(keys: [KeyEquivalent.upArrow, KeyEquivalent.leftArrow], action: { press in
+                            if recorder.pedalDroneIndex > 0 && recorder.pedalDroneIndex < recorder.recorded.count {
+                                backward()
+                            } else if recorder.pedalDroneIndex == 0 {
+                                turnOff()
+                                synth.clearQueue()
+                            }
+                            return .handled
+                        })
+                        .onChange(of: tempQueue) {
+                            synth.queue = tempQueue
+                        }
                 }
             }
-            .focusable()
-            .focused($isFocused)
-            .focusEffectDisabled()
-            .onKeyPress(keys: [KeyEquivalent.downArrow, KeyEquivalent.rightArrow], action: { press in
-                if index >= 0 && index < recorder.recorded.count - 1 {
-                    forward()
-                } else if index == recorder.recorded.count - 1 {
-                    turnOff()
-                }
-                return .handled
-                     
-            })
-            .onKeyPress(keys: [KeyEquivalent.upArrow, KeyEquivalent.leftArrow], action: { press in
-                if index > 0 && index < recorder.recorded.count {
-                    backward()
-                } else if index == 0 {
-                    turnOff()
-                }
-                return .handled
-            })
-            .onChange(of: tempQueue) {
-                synth.queue = tempQueue
-            }
-            .onAppear() {
-                isFocused = true
-                reset()
-            }
+            
+            
         
     }
 }

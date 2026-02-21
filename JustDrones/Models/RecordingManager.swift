@@ -16,7 +16,7 @@ struct Preset: Identifiable, Codable {
 @Observable class RecordingManager {
     var recorded: Array<Drone>
     var recording: Bool
-    
+    var pedalDroneIndex: Int = 0
     var presets: Array<Preset> {
     didSet {
         save()
