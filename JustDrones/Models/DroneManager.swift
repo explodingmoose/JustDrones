@@ -131,10 +131,14 @@ struct NamingHelper {
 
 //Interval constants
 struct Intervals {
-    public static let PFifth = 3.0/2.0
+    public static let PFifth = 1.5 //pure/pythagorean
     public static let QCFifth = pow(5, 0.25) //quarter comma
     public static let TCFifth = pow(10.0/3.0, 1.0/3.0) //third comma
     public static let ET12Fifth = pow(2.0, 7.0/12.0) //Equal Tempered
+    public static let SCFifth = pow(45.0/4, 1.0/6.0) //sixth comma
+    public static let FCFifth = 1.5 / pow(81/80, 0.2) //Fifth comma
+    public static let TSCFifth = 1.5 / pow(81/80, 2.0/7.0) // 2/7th comma
+    
 }
 
 class Drone: Identifiable, Equatable, Codable {

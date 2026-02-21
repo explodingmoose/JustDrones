@@ -32,8 +32,11 @@ struct CircleOfFifths: View {
                     Picker("Temperament", selection: $droneManager.temperedfifth) {
                         Text("Pure").tag(Intervals.PFifth)
                         Text("Equal").tag(Intervals.ET12Fifth)
-                        Text("1/4 Comma").tag(Intervals.QCFifth)
                         Text("1/3 Comma").tag(Intervals.TCFifth)
+                        Text("1/4 Comma").tag(Intervals.QCFifth)
+                        Text("1/5 Comma").tag(Intervals.FCFifth)
+                        Text("2/7 Comma").tag(Intervals.TSCFifth)
+                        Text("1/6 Comma").tag(Intervals.SCFifth)
                     }
                     Picker("Tonus", selection: $tonus) {
                         ForEach(0..<12) {
